@@ -1,3 +1,7 @@
+*{
+  font-family: 'Montserrat', sans-serif;
+
+}
 .App {
   text-align: center;
 }
@@ -35,4 +39,474 @@
   to {
     transform: rotate(360deg);
   }
+}
+.acerca{
+  text-align: justify;
+}
+
+.icon-tecnologies{
+  height: 80px;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
+  background-position: center !important;
+  border-radius: 10%;
+
+}
+.icon-tecnologies:hover{
+  opacity: 20%;
+}
+
+.grid-item{
+  height: 80px;
+  transition: 2s ease;
+  font-weight: 900;
+  margin: 20px;
+  padding-bottom: 10px;
+}
+.grid-item:hover{
+  border-radius: 10%;
+  transition: 2s ease;
+}
+.grid-item:hover span{
+  display: inline;
+  transition: 5s ease;
+  color: #0E0004;
+  font-size: x-large;
+  font-weight: 900;
+}
+.grid-item:hover span:hover{
+  display: none;
+}
+.grid-item span{
+  margin-left: -5px;
+  display: none;
+}
+#html-icon{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg");
+  
+}
+#html-icon:hover{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg");
+}
+
+#css-icon{
+  transition: 1s ease;
+
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg");
+ 
+}
+#css-icon:hover{
+  transition: 1s ease;
+
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg");
+}
+#javascript-icon{
+  transition: 1s ease;
+
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg");
+}
+#javascript-icon:hover{
+  transition: 1s ease;
+
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg");
+}
+#react-icon{
+  transition: 1s ease;
+
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg");
+ 
+}
+#react-icon:hover{
+  transition: 1s ease;
+
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg");
+}
+
+#vue-icon{
+  transition: 1s ease;
+
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg");
+  
+}
+#vue-icon:hover{
+  transition: 1s ease;
+
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-plain.svg");
+}
+#angular-icon{
+  transition: 1s ease;
+
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg");
+  
+}
+#angular-icon:hover{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-plain.svg");
+}
+
+#flutter-icon{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg");
+  
+}
+#flutter-icon:hover{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-plain.svg");
+}
+#android-icon{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg");
+  
+}
+#android-icon:hover{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-plain.svg");
+}
+#spring-icon{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg");
+ 
+}
+#spring-icon:hover{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-plain.svg");
+}
+#node-icon{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg");
+ 
+}
+#node-icon:hover{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain-wordmark.svg");
+}
+#codeigniter-icon{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain.svg");
+ 
+}
+#codeigniter-icon:hover{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain-wordmark.svg");
+}
+#mysql-icon{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg");
+  
+}
+#mysql-icon:hover{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-plain-wordmark.svg");
+}
+#postgresql-icon{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg");
+  
+}
+#postgresql-icon:hover{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg");
+}
+#sqlserver-icon{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg");
+  
+}
+#sqlserver-icon:hover{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain-wordmark.svg");
+}
+#mongodb-icon{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg");
+
+}
+#mongodb-icon:hover{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-plain.svg");
+}
+#firebase-icon{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg");
+ 
+}
+#firebase-icon:hover{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain-wordmark.svg");
+}
+#sqlite-icon{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg");
+  
+}
+#sqlite-icon:hover{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-plain.svg");
+}
+#aws-icon{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg");
+ 
+}
+#aws-icon:hover{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg");
+}#netlify-icon{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg");
+  
+}
+#netlify-icon:hover{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-plain.svg");
+}#docker-icon{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg");
+
+}
+#docker-icon:hover{
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg");
+} 
+section#tecnologias.container{
+  width: 100vw;
+  max-width: 100vw;
+  margin: 0 !important;
+  padding-top: 5vh;
+  background-color: #2CF6B3;
+}
+h2{
+  font-weight: bold;
+  text-decoration: underline;
+  margin-bottom: 20px;
+}
+section#proyectos.container{
+  background-color: #F5F3F5;
+  width: 100vw;
+  max-width: 100vw;
+  margin: 0 !important;
+  padding-top: 5vh;
+}
+.imagen{
+  background: url("images/img_ejemplo_proyecto.png");
+  height: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+i{
+  font-size: x-large;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.enlaces-proyectos{
+  justify-content: center;
+}
+.card{
+  background-color: #52489C ;
+  color: white;
+  border: #0E0004 solid 2px;
+  margin: 10px;
+  height: 500px !important;
+}
+.card button{
+  margin-right: 10px;
+  display: none;
+}
+.card:hover .card-img-top .imagen{
+  height: 100% !important;
+  transition: 0.5s ease;
+}
+.card:hover .card-img-top{
+  height: 100%;
+  transition: 0.5s ease;
+}
+.card:hover .card-body{
+  position: relative;
+  top: -400;
+  z-index: 1;
+  height: 300px;
+  flex-shrink: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-color: #0e00049a;
+  transition: 2s ease;
+}
+.card:hover{
+  display: block;
+  height: 500px !important;
+  max-height: auto !important;
+  min-height: auto !important;
+  flex-shrink: inherit;
+  background-color: #F5F3F5;
+  transition: 2s ease;
+
+}
+.card{
+  transition: 2s ease;
+  border-radius: 10% !important;
+  overflow: hidden;
+}
+.card:hover .card-footer{
+  position: relative;
+  top: -400;
+  z-index: 1;
+  transition: 2s ease;
+}
+.card:hover button{
+  transition: 1s ease;
+
+  display: inline;
+}
+.ReactModal__Overlay{
+  z-index: 2;
+}
+.control-dots{
+  height: 20px;
+  padding-top: 5px !important;
+}
+.carousel-root {
+  height: 650px;
+}
+.carousel.carousel-slider {
+  height: 650px;
+
+}
+.dot.selected{
+  background-color: #52489C !important;
+  color: #52489C;
+}
+#contacto{
+  padding-top: 50px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 !important;
+}
+#contenido-inicial{
+  height: 90%;
+}
+
+#contenido-inicial {
+  position: relative;
+  width: 100%;
+  height: 90%;
+  overflow: hidden;
+}
+
+#contenido-inicial{
+  background-color: #0e000485;
+  padding: 0;
+  margin: 0;
+}
+#contenido-inicial video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#elementos-contenido-inicial {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #ffffff;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  background-color: #0e000498;
+  display: flex;
+  flex-direction: row;
+}
+#elementos-contenido-inicial{
+  padding: 0;
+  margin: 0;
+  background:url("images/fondo_img_1_photoshop.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#parte_imagen{
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	
+}
+#parte_texto{
+	width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#parte_texto h1 {
+
+  background-image: linear-gradient(90deg, #f5f3f5, #2cf6b3, #48acf0,#52489c) !important;
+  animation: mymove 5s infinite;
+    background-size: 400% !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent;
+    
+    font-size: 100px;
+    font-family: 'Boogaloo', cursive;
+    letter-spacing: 10px;
+    font-weight: 600;
+    word-spacing: 5px;
+    -webkit-text-stroke: 1px rgba(126, 126, 126, 0.692);
+    text-stroke: 1px rgba(126, 126, 126, 0.692);
+}
+
+@keyframes mymove {
+  from {
+    background-position: 0%; }
+
+  to {
+    background-position: 400%; } 
+}
+/* @-webkit-keyframes animate {
+  from {
+    background-position: 0%; }
+
+  to {
+    background-position: 400%; } 
+}
+#parte_texto h1{
+  position: absolute;
+  top: 35%;
+  left: 20%;
+  background-image: linear-gradient(90deg, blue, green, red) !important;
+  background-size: 400% !important;
+  font-size: 100px;
+  font-family: sans-serif;
+  letter-spacing: 10px;
+  font-weight: 600;
+  word-spacing: 5px;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text !important;
+  animation: animate 10s linear infinite !important;
+  -moz-animation: animate 10s linear infinite !important;
+  -webkit-animation: animate 2s linear infinite !important;
+  -o-animation: animate 10s linear infinite !important;
+} */
+
+#img_perfil {
+	background-image: url('images/captura_imagen-removebg.png');
+	width: 500px;
+	height: 500px;
+	background-size: cover;
+	border-radius: 10%;
+
+}
+section#acerca-de{
+  background-color: #f7f2f7;
+  margin: 0 !important;
+  width: 100%;
+  max-width: 100%;
 }

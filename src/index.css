@@ -1,13 +1,124 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
 }
+
+
+.jumbotron {
+	background-size: cover;
+	color: #fff;
+}
+
+@media (max-width:800px) {
+	#img_perfil {
+		width: 200px;
+		height: 200px;
+	}
+}
+
+.card {
+	margin-bottom: 20px;
+}
+
+.card-title {
+	font-size: 24px;
+	margin-bottom: 10px;
+}
+
+.card-text {
+	margin-bottom: 15px;
+}
+
+footer {
+	padding: 20px;
+}
+
+@media (max-width: 768px) {
+	.jumbotron {
+		height: 300px;
+		line-height: 300px;
+	}
+}
+
+@media (min-width: 768px) {
+	.jumbotron {
+		height: 500px;
+		line-height: 500px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+.st0 {
+	fill: #29ABE2;
+}
+
+.st1 {
+	fill: none;
+	stroke: #FF00DB;
+	stroke-width: 3;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-dasharray: 0, 25, 175;
+}
+
+.st2 {
+	fill: none;
+	stroke: #2E00ED;
+	stroke-width: 4;
+	stroke-miterlimit: 100;
+	stroke-dasharray: 0, 54, 101;
+}
+
+.st3 {
+	fill: none;
+	stroke: #F70285;
+	stroke-width: 3;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-miterlimit: 100;
+	stroke-dasharray: 0, 37, 129;
+}
+
+.st4 {
+	fill: none;
+	stroke: #FF0400;
+	stroke-width: 8;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-dasharray: 0, 36, 136;
+}
+
+.st5 {
+	fill: none;
+	stroke: #FFFFFF;
+	stroke-width: 2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-dasharray: 0, 36, 136;
+}
+
+
+.wrapper {
+	width: 60%;
+	height: 100%;
+	margin: 100px auto;
+  }
