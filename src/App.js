@@ -127,7 +127,7 @@ const App = () => {
 
         <div id="contenido-inicial" class="jumbotron text-center">
           <video autoPlay loop muted>
-            <source src="/fondo.mp4" type="video/mp4" />
+            <source src="/fondo3.mp4" type="video/mp4" />
             Tu navegador no admite el elemento de video.
           </video>
           {/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
@@ -355,6 +355,24 @@ const App = () => {
           {/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
 
           <div class="container" id="elementos-contenido-inicial">
+            <div id="navegador">
+              <div class="nav">
+                <ul>
+                  <li>
+                    <a href="#">Inicio</a>
+                  </li>
+                  <li>
+                    <a href="#">Acerca de</a>
+                  </li>
+                  <li>
+                    <a href="#">Servicios</a>
+                  </li>
+                  <li>
+                    <a href="#">Contacto</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
             <div id="parte_texto">
               <h1>Welcome!</h1>
             </div>
@@ -363,51 +381,56 @@ const App = () => {
             </div>
           </div>
         </div>
-          
+
         <section id="acerca-de" class="container">
-          <h2>Acerca de mí</h2>
-          <p class="acerca">
-            ¡Hola! Mi nombre es Victor Villazante, y soy un apasionado
-            desarrollador de software. Desde muy joven, descubrí mi fascinación
-            por la creación de soluciones tecnológicas innovadoras que puedan
-            impactar de manera positiva en la vida de las personas.
-          </p>
+          <div id="acerca-de-gift">
+            <img src="imagen-city.gif" alt="GIF repetido infinitamente" />
+          </div>
+          <div id="acerca-de-texto">
+            <h2>Acerca de mí</h2>
+            <p class="acerca">
+              ¡Hola! Mi nombre es Victor Villazante, y soy un apasionado
+              desarrollador de software. Desde muy joven, descubrí mi
+              fascinación por la creación de soluciones tecnológicas innovadoras
+              que puedan impactar de manera positiva en la vida de las personas.
+            </p>
 
-          <p class="acerca">
-            Mi objetivo siempre ha sido superar los desafíos técnicos y entregar
-            productos de calidad que cumplan con las expectativas de los
-            clientes.
-          </p>
+            <p class="acerca">
+              Mi objetivo siempre ha sido superar los desafíos técnicos y
+              entregar productos de calidad que cumplan con las expectativas de
+              los clientes.
+            </p>
 
-          <p class="acerca">
-            Mi experiencia abarca un amplio de tecnologias de desarrollo de
-            software y estoy constantemente actualizándome y aprendiendo para
-            mantenerme al tanto de las últimas tendencias en el mundo del
-            desarrollo de software.
-          </p>
+            <p class="acerca">
+              Mi experiencia abarca un amplio de tecnologias de desarrollo de
+              software y estoy constantemente actualizándome y aprendiendo para
+              mantenerme al tanto de las últimas tendencias en el mundo del
+              desarrollo de software.
+            </p>
 
-          <p class="acerca">
-            Lo que más me entusiasma de mi trabajo es la capacidad de
-            transformar ideas abstractas en productos tangibles que mejoren la
-            vida cotidiana de las personas. Me encanta colaborar en equipo,
-            enfrentar desafíos complejos y encontrar soluciones creativas para
-            los problemas que se presentan.
-          </p>
+            <p class="acerca">
+              Lo que más me entusiasma de mi trabajo es la capacidad de
+              transformar ideas abstractas en productos tangibles que mejoren la
+              vida cotidiana de las personas. Me encanta colaborar en equipo,
+              enfrentar desafíos complejos y encontrar soluciones creativas para
+              los problemas que se presentan.
+            </p>
 
-          <p class="acerca">
-            Además de mi experiencia técnica, me considero una persona con
-            excelentes habilidades de comunicación y capacidad para trabajar en
-            entornos dinámicos y colaborativos.
-          </p>
+            <p class="acerca">
+              Además de mi experiencia técnica, me considero una persona con
+              excelentes habilidades de comunicación y capacidad para trabajar
+              en entornos dinámicos y colaborativos.
+            </p>
 
-          <p class="acerca">
-            Este portafolio es una muestra de algunos de los proyectos en los
-            que he trabajado y las habilidades que he desarrollado a lo largo de
-            mi carrera. Si estás buscando un desarrollador de software
-            apasionado, comprometido y proactivo, no dudes en ponerte en
-            contacto conmigo. Estaré encantado de formar parte de tu equipo y
-            ayudarte a alcanzar tus metas tecnológicas.
-          </p>
+            <p class="acerca">
+              Este portafolio es una muestra de algunos de los proyectos en los
+              que he trabajado y las habilidades que he desarrollado a lo largo
+              de mi carrera. Si estás buscando un desarrollador de software
+              apasionado, comprometido y proactivo, no dudes en ponerte en
+              contacto conmigo. Estaré encantado de formar parte de tu equipo y
+              ayudarte a alcanzar tus metas tecnológicas.
+            </p>
+          </div>
         </section>
         <section id="tecnologias" class="container">
           <h2 style={{ color: "#0E0004" }}>Tecnologias</h2>
