@@ -127,7 +127,7 @@ const App = () => {
 
         <div id="contenido-inicial" class="jumbotron text-center">
           <video autoPlay loop muted>
-            <source src="/fondo3.mp4" type="video/mp4" />
+            <source src="" type="video/mp4" />
             Tu navegador no admite el elemento de video.
           </video>
           {/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
@@ -375,6 +375,11 @@ const App = () => {
             </div>
             <div id="parte_texto">
               <h1>Welcome!</h1>
+              <p>Hello! My name is Victor Villazante and <br/>
+                I am a passionate software developer. <br/>
+                I like backend, frontend, mobile, cloud <br/>
+                computing development and data analysis</p>
+              <button class="btn">Show my proyects</button>
             </div>
             <div id="parte_imagen">
               <div id="img_perfil"></div>
@@ -395,7 +400,7 @@ const App = () => {
               que puedan impactar de manera positiva en la vida de las personas.
             </p>
 
-            <p class="acerca">
+            {/* <p class="acerca">
               Mi objetivo siempre ha sido superar los desafíos técnicos y
               entregar productos de calidad que cumplan con las expectativas de
               los clientes.
@@ -429,31 +434,7 @@ const App = () => {
               apasionado, comprometido y proactivo, no dudes en ponerte en
               contacto conmigo. Estaré encantado de formar parte de tu equipo y
               ayudarte a alcanzar tus metas tecnológicas.
-            </p>
-          </div>
-        </section>
-        <section id="tecnologias" class="container">
-          <h2 style={{ color: "#0E0004" }}>Tecnologias</h2>
-          <div className="container">
-            <div className="row">
-              {items.map((elem, index) => {
-                let nc = 4;
-                let id = elem + "-icon";
-                let ncol = "col-sm-" + 12 / nc;
-                return (
-                  <div className={ncol + " technology"}>
-                    <div className="grid-item">
-                      <div className="icon-tecnologies" id={id}></div>
-                      <span
-                        style={{ zIndex: 1, position: "relative", top: "-50" }}
-                      >
-                        {elem.toUpperCase()}
-                      </span>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+            </p> */}
           </div>
         </section>
         <section id="proyectos" class="container">
@@ -513,6 +494,31 @@ const App = () => {
             </div>
           </Carousel>
         </section>
+        <section id="tecnologias" class="container">
+          <h2>Tecnologias</h2>
+          <div className="container" id="tecnologias-contenedor">
+            <div className="row">
+              {items.map((elem, index) => {
+                let nc = 4;
+                let id = elem + "-icon";
+                let ncol = "col-sm-" + 12 / nc;
+                return (
+                  <div>
+                    <div className="element-icon">
+                      <div className="icon-tecnologies" id={id}></div>
+                      <span
+                        style={{ zIndex: 1, position: "relative", top: "-50" }}
+                      >
+                        {elem.toUpperCase()}
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+        
 
         <section id="contacto" class="container">
           <h2>Contacto</h2>
