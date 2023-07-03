@@ -553,6 +553,7 @@ i {
   margin: auto 5%;
   border: 6px solid #007ea7;
   border-radius: 20px;
+  padding: 10px;
 }
 
 #parte_texto button {
@@ -579,7 +580,7 @@ i {
   -webkit-text-stroke: 1px rgba(126, 126, 126, 0.692);
   text-stroke: 1px rgba(126, 126, 126, 0.692); */
   background-image: linear-gradient(0deg, #007EA7, #007EA7, #F0EFF4) !important;
-  animation: mymove 5s infinite;
+  /* animation: mymove 5s infinite; */
   background-size: 400% !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent;
@@ -588,7 +589,16 @@ i {
   letter-spacing: 10px;
   font-weight: 600;
   word-spacing: 5px;
-  -webkit-text-stroke: 1px rgba(126, 126, 126, 0.692);
+  /* -webkit-text-stroke: 1px rgba(126, 126, 126, 0.692); */
+  animation: typing 4s steps(40) 1s 1 normal both;
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 @keyframes mymove {
@@ -628,13 +638,79 @@ i {
 } */
 
 #img_perfil {
-  background-image: url(http://localhost:3000/static/media/captura_imagen-removebg.58eb241be7b52a3ac6ad.png);
+  background-image: url('images/captura_imagen-removebg.png');
   width: 500px;
   height: 500px;
   background-size: cover;
   border-radius: 10%;
   border: 6px solid #f0eff4;
 }
+#redes_sociales{
+  margin-top: 20px;
+  height: 100px;
+}
+.social-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.social-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 20px;
+  margin: 0 5px;
+  overflow: hidden;
+  position: relative;
+  animation: buttonAnimation 2s infinite alternate;
+}
+@keyframes buttonAnimation {
+  from{
+    width: 60px;
+    height: 60px;
+  }
+  to{
+    width: 70px;
+    height: 70px;
+  }
+}
+.social-button element {
+  font-size: 20px;
+  color: white;
+}
+
+.social-button.whatsapp { background-color: #25D366; }
+.social-button.linkedin { background-color: #0A66C2; }
+.social-button.github { background-color: #333333; }
+.social-button.gmail { background-color: #D44638; }
+.social-button.outlook { background-color: #0072C6; }
+
+/* .social-button:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  border-radius: 50%;
+  animation: buttonAnimation 2s infinite alternate;
+}
+
+@keyframes buttonAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+} */
 
 section#acerca-de {
   /* background-color: #289af7; */

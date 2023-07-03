@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { FaWhatsapp,FaLinkedin,FaGithub,FaMailBulk } from "react-icons/fa";
+
 const App = () => {
   const [verVideo, setVerVideo] = useState(false);
   // useEffect(() => {
@@ -375,14 +377,32 @@ const App = () => {
             </div>
             <div id="parte_texto">
               <h1>Welcome!</h1>
-              <p>Hello! My name is Victor Villazante and <br/>
-                I am a passionate software developer. <br/>
-                I like backend, frontend, mobile, cloud <br/>
-                computing development and data analysis</p>
+              <p>
+                Hello! My name is Victor Villazante and <br />
+                I am a passionate software developer. <br />
+                I like backend, frontend, mobile, cloud <br />
+                computing development and data analysis
+              </p>
               <button class="btn">Show my proyects</button>
             </div>
             <div id="parte_imagen">
               <div id="img_perfil"></div>
+              <div id="redes_sociales">
+                <div class="social-buttons">
+                  <a href="#" class="social-button whatsapp">
+                    <FaWhatsapp size={32} color="white" />
+                  </a>
+                  <a href="#" class="social-button linkedin">
+                    <FaLinkedin size={32} color="white" />
+                  </a>
+                  <a href="#" class="social-button github">
+                    <FaGithub size={32} color="white" />
+                  </a>
+                  <a href="#" class="social-button gmail">
+                    <FaMailBulk size={32} color="white" />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -518,7 +538,6 @@ const App = () => {
             </div>
           </div>
         </section>
-        
 
         <section id="contacto" class="container">
           <h2>Contacto</h2>
