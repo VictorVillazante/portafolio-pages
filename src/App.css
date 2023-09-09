@@ -592,10 +592,12 @@ i {
   /* -webkit-text-stroke: 1px rgba(126, 126, 126, 0.692); */
   animation: typing 4s steps(40) 1s 1 normal both;
 }
+
 @keyframes typing {
   from {
     width: 0;
   }
+
   to {
     width: 100%;
   }
@@ -645,13 +647,18 @@ i {
   border-radius: 10%;
   border: 6px solid #f0eff4;
 }
-#redes_sociales{
+
+#redes_sociales {
   margin-top: 20px;
   height: 100px;
 }
+
 .social-buttons {
   display: flex;
   justify-content: center;
+  background: #e8e2e4;
+  padding: 5px;
+  border-radius: 20px;
 }
 
 .social-button {
@@ -664,28 +671,45 @@ i {
   margin: 0 5px;
   overflow: hidden;
   position: relative;
-  animation: buttonAnimation 2s infinite alternate;
+  animation: buttonAnimation 3s infinite alternate;
 }
+
 @keyframes buttonAnimation {
-  from{
+  from {
     width: 60px;
     height: 60px;
   }
-  to{
+
+  to {
     width: 70px;
     height: 70px;
   }
 }
+
 .social-button element {
   font-size: 20px;
   color: white;
 }
 
-.social-button.whatsapp { background-color: #25D366; }
-.social-button.linkedin { background-color: #0A66C2; }
-.social-button.github { background-color: #333333; }
-.social-button.gmail { background-color: #D44638; }
-.social-button.outlook { background-color: #0072C6; }
+.social-button.whatsapp {
+  background-color: #25D366;
+}
+
+.social-button.linkedin {
+  background-color: #0A66C2;
+}
+
+.social-button.github {
+  background-color: #333333;
+}
+
+.social-button.gmail {
+  background-color: #D44638;
+}
+
+.social-button.outlook {
+  background-color: #0072C6;
+}
 
 /* .social-button:before {
   content: "";
@@ -823,6 +847,58 @@ section#acerca-de #acerca-de-texto {
   margin: auto;
   text-align: center;
 }
-#tecnologias-contenedor .row{
+
+#tecnologias-contenedor .row {
   justify-content: center;
+}
+
+.paper {
+  width: 200px;
+  height: 200px;
+  background-color: #fff;
+  position: relative;
+  /* animation: foldPaper 2s ease-in-out infinite; */
+  /* animation: foldPaper 10s ease-in-out !important; */
+
+}
+.paper:hover{
+  animation: foldPaper 10s ease-in-out !important;
+  
+
+}
+@keyframes foldPaper {
+  0% {
+    transform: perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0);
+  }
+  50% {
+    transform: perspective(800px) rotateX(0deg) rotateY(180deg) translateY(-20px);
+  }
+  100% {
+    transform: perspective(800px) rotateX(0deg) rotateY(360deg) translateY(-20px);
+    display: none;
+  }
+}
+
+.notebook {
+  width: 400px;
+  height: 300px;
+  position: relative;
+  perspective: 800px;
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 1s ease-in-out;
+}
+
+.notebook:hover .page:first-child {
+  transform: rotateY(-180deg);
+}
+
+.notebook:hover .page:last-child {
+  transform: rotateY(180deg);
 }

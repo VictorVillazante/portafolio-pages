@@ -5,7 +5,10 @@ import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { FaWhatsapp,FaLinkedin,FaGithub,FaMailBulk } from "react-icons/fa";
+import { FaWhatsapp, FaLinkedin, FaGithub, FaMailBulk } from "react-icons/fa";
+import React, { useRef } from "react";
+import { Link as ScrollLink } from 'react-scroll';
+
 
 const App = () => {
   const [verVideo, setVerVideo] = useState(false);
@@ -74,6 +77,26 @@ const App = () => {
         Anterior
       </button>
     );
+  const handleWhatssapp = () => {
+    const phoneNumber = "74260360";
+
+    const whatsappLink = `https://wa.me/${phoneNumber}?text=Hola%20%20vi%20tu%20portafolio%20me%20gustaria%20contactarme%20contigo`;
+
+    window.open(whatsappLink, "_blank");
+  };
+  const handleLinkedin = () => {
+    window.open(
+      "https://www.linkedin.com/in/v%C3%ADctor-villazante/",
+      "_blank"
+    );
+  };
+  const handleGithub = () => {
+    window.open("https://github.com/VictorVillazante", "_blank");
+  };
+  const handleGmail = () => {
+    window.open("https://www.google.com/intl/es/gmail/about/", "_blank");
+  };
+
 
   const renderCustomArrowNext = (onClickHandler, hasNext, label) =>
     hasNext && (
@@ -389,17 +412,34 @@ const App = () => {
               <div id="img_perfil"></div>
               <div id="redes_sociales">
                 <div class="social-buttons">
-                  <a href="#" class="social-button whatsapp">
+                  <a
+                    href="#"
+                    class="social-button whatsapp"
+                    onClick={handleWhatssapp}
+                  >
                     <FaWhatsapp size={32} color="white" />
                   </a>
-                  <a href="#" class="social-button linkedin">
+                  <a
+                    href="#"
+                    class="social-button linkedin"
+                    onClick={handleLinkedin}
+                  >
                     <FaLinkedin size={32} color="white" />
                   </a>
-                  <a href="#" class="social-button github">
-                    <FaGithub size={32} color="white" />
-                  </a>
-                  <a href="#" class="social-button gmail">
+                  <ScrollLink
+                    to="scrollToRef" // El ID del elemento al que deseas desplazarte
+                    smooth={true} // Desplazamiento suave
+                    duration={500} // Duración de la animación en milisegundos
+                    class="social-button gmail"
+                  >
                     <FaMailBulk size={32} color="white" />
+                  </ScrollLink>
+                  <a
+                    href="#"
+                    class="social-button github"
+                    onClick={handleGithub}
+                  >
+                    <FaGithub size={32} color="white" />
                   </a>
                 </div>
               </div>
@@ -411,7 +451,12 @@ const App = () => {
           <div id="acerca-de-gift">
             <img src="imagen-city.gif" alt="GIF repetido infinitamente" />
           </div>
-          <div id="acerca-de-texto">
+          <div class="notebook">
+            <div class="page">1</div>
+            <div class="page">2</div>
+          </div>
+
+          <div class="paper" id="acerca-de-texto">
             <h2>Acerca de mí</h2>
             <p class="acerca">
               ¡Hola! Mi nombre es Victor Villazante, y soy un apasionado
@@ -542,7 +587,7 @@ const App = () => {
         <section id="contacto" class="container">
           <h2>Contacto</h2>
           <form>
-            <div class="form-group">
+            <div id="scrollToRef" class="form-group">
               <label for="nombre">Nombre:</label>
               <input
                 type="text"
