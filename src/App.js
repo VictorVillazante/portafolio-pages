@@ -7,10 +7,86 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { FaWhatsapp, FaLinkedin, FaGithub, FaMailBulk } from "react-icons/fa";
 import React, { useRef } from "react";
-import { Link as ScrollLink } from 'react-scroll';
-
+import { Link as ScrollLink } from "react-scroll";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const App = () => {
+  setInterval(miFuncion, 10000);
+
+  let contador = 0;
+  function miFuncion() {
+    //console.log("Esta función se ejecuta cada 40 segundos."+((contador++)%4));
+    const elemento1 = document.getElementById("img-acerca-de-1");
+    const elemento2 = document.getElementById("img-acerca-de-2");
+    const elemento3 = document.getElementById("img-acerca-de-3");
+    const elemento4 = document.getElementById("img-acerca-de-4");
+    elemento1.style.borderRadius = "10px";
+    elemento2.style.borderRadius = "10px";
+    elemento3.style.borderRadius = "10px";
+    elemento4.style.borderRadius = "10px";
+    elemento1.style.boxShadow = "none";
+    elemento2.style.boxShadow = "none";
+    elemento3.style.boxShadow = "none";
+    elemento4.style.boxShadow = "none";
+
+    contador = contador + 1;
+    if (contador % 4 == 0) {
+      const elemento = document.getElementById("img-acerca-de-1");
+      console.log("Actualizando img-acerca-de-1");
+      elemento.style.borderRadius = "100px";
+      elemento.style.boxShadow = "13px 13px 39px 2px rgba(0,0,0,0.69)";
+    }
+    if (contador % 4 == 1) {
+      const elemento = document.getElementById("img-acerca-de-2");
+      console.log("Actualizando img-acerca-de-2");
+      elemento.style.borderRadius = "100px";
+      elemento.style.boxShadow = "13px 13px 39px 2px rgba(0,0,0,0.69)";
+    }
+    if (contador % 4 == 2) {
+      const elemento = document.getElementById("img-acerca-de-3");
+      console.log("Actualizando img-acerca-de-3");
+      elemento.style.borderRadius = "100px";
+      elemento.style.boxShadow = "13px 13px 39px 2px rgba(0,0,0,0.69)";
+    }
+    if (contador % 4 == 3) {
+      const elemento = document.getElementById("img-acerca-de-4");
+      console.log("Actualizando img-acerca-de-4");
+      elemento.style.borderRadius = "100px";
+      elemento.style.boxShadow = "13px 13px 39px 2px rgba(0,0,0,0.69)";
+    }
+  }
+  // Manejar ancho pantalla
+  const [numeroElementos, setNumeroElementos] = useState(window.innerWidth);
+
+  // Función para manejar el evento de cambio de tamaño
+  const manejarCambioDeTamaño = () => {
+    console.log("Cambio tamaño " + window.innerWidth);
+    setNumeroElementos(100 / 3);
+    if (window.innerWidth < 1000) {
+      setNumeroElementos(100 / 2);
+    }
+    if (window.innerWidth < 500) {
+      setNumeroElementos(100);
+    }
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      let elem = document.getElementById("spinner");
+      elem.style.display = "none";
+    }, 5000);
+    // Agregar un event listener para el evento resize
+    window.addEventListener("resize", manejarCambioDeTamaño);
+
+    // Limpia el event listener cuando el componente se desmonta
+    return () => {
+      window.removeEventListener("resize", manejarCambioDeTamaño);
+    };
+  }, []);
+  // Manejar ancho pantalla
+
   const [verVideo, setVerVideo] = useState(false);
   // useEffect(() => {
   //   var pathEls = document.querySelectorAll("path");
@@ -96,7 +172,10 @@ const App = () => {
   const handleGmail = () => {
     window.open("https://www.google.com/intl/es/gmail/about/", "_blank");
   };
-
+  const hideLoader = () => {
+    const loaderOverlay = document.querySelector(".loader-overlay");
+    loaderOverlay.style.display = "none";
+  };
 
   const renderCustomArrowNext = (onClickHandler, hasNext, label) =>
     hasNext && (
@@ -111,6 +190,9 @@ const App = () => {
     );
   return (
     <>
+      <div className="spinner" id="spinner">
+        <img src="carga.gif" alt="GIF infinito" />
+      </div>
       <div className="App">
         {/* <nav class="navbar navbar-expand-md navbar-light bg-light">
           <a class="navbar-brand" href="#">
@@ -150,7 +232,7 @@ const App = () => {
           </div>
         </nav> */}
 
-        <div id="contenido-inicial" class="jumbotron text-center">
+        <div id="contenido-inicial" className="jumbotron text-center">
           <video autoPlay loop muted>
             <source src="" type="video/mp4" />
             Tu navegador no admite el elemento de video.
@@ -379,137 +461,177 @@ const App = () => {
           {/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
           {/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
 
-          <div class="container" id="elementos-contenido-inicial">
+          <div className="container" id="elementos-contenido-inicial">
             <div id="navegador">
-              <div class="nav">
+              <div className="nav">
                 <ul>
                   <li>
-                    <a href="#">Inicio</a>
+                    <ScrollLink
+                      to="elementos-contenido-inicial"
+                      smooth={true}
+                      duration={500}
+                    >
+                      <a href="#">Inicio</a>
+                    </ScrollLink>
                   </li>
                   <li>
-                    <a href="#">Acerca de</a>
+                    <ScrollLink to="acerca-de-ref" smooth={true} duration={500}>
+                      <a href="#">Acerca</a>
+                    </ScrollLink>
                   </li>
                   <li>
-                    <a href="#">Servicios</a>
+                    <ScrollLink to="proyectos-ref" smooth={true} duration={500}>
+                      <a href="#">Proyectos</a>
+                    </ScrollLink>
                   </li>
                   <li>
-                    <a href="#">Contacto</a>
+                    <ScrollLink
+                      to="tecnologias-ref"
+                      smooth={true}
+                      duration={500}
+                    >
+                      <a href="#">Tecnologias</a>
+                    </ScrollLink>
                   </li>
                 </ul>
               </div>
             </div>
-            <div id="parte_texto">
-              <h1>Welcome!</h1>
-              <p>
-                Hello! My name is Victor Villazante and <br />
-                I am a passionate software developer. <br />
-                I like backend, frontend, mobile, cloud <br />
-                computing development and data analysis
-              </p>
-              <button class="btn">Show my proyects</button>
-            </div>
-            <div id="parte_imagen">
-              <div id="img_perfil"></div>
-              <div id="redes_sociales">
-                <div class="social-buttons">
-                  <a
-                    href="#"
-                    class="social-button whatsapp"
-                    onClick={handleWhatssapp}
-                  >
-                    <FaWhatsapp size={32} color="white" />
-                  </a>
-                  <a
-                    href="#"
-                    class="social-button linkedin"
-                    onClick={handleLinkedin}
-                  >
-                    <FaLinkedin size={32} color="white" />
-                  </a>
-                  <ScrollLink
-                    to="scrollToRef" // El ID del elemento al que deseas desplazarte
-                    smooth={true} // Desplazamiento suave
-                    duration={500} // Duración de la animación en milisegundos
-                    class="social-button gmail"
-                  >
-                    <FaMailBulk size={32} color="white" />
-                  </ScrollLink>
-                  <a
-                    href="#"
-                    class="social-button github"
-                    onClick={handleGithub}
-                  >
-                    <FaGithub size={32} color="white" />
-                  </a>
+            <div
+              className="row"
+              id="contenido-presentacion"
+              style={{ width: "100%" }}
+            >
+              <div id="parte_imagen">
+                <div id="img_perfil"></div>
+                <div id="redes_sociales">
+                  <div className="social-buttons">
+                    <a
+                      href="#"
+                      className="social-button whatsapp"
+                      onClick={handleWhatssapp}
+                    >
+                      <FaWhatsapp size={32} color="white" />
+                    </a>
+                    <a
+                      href="#"
+                      className="social-button linkedin"
+                      onClick={handleLinkedin}
+                    >
+                      <FaLinkedin size={32} color="white" />
+                    </a>
+                    <ScrollLink
+                      to="scrollToRef"
+                      smooth={true}
+                      duration={500}
+                      className="social-button gmail"
+                    >
+                      <FaMailBulk size={32} color="white" />
+                    </ScrollLink>
+                    <a
+                      href="#"
+                      className="social-button github"
+                      onClick={handleGithub}
+                    >
+                      <FaGithub size={32} color="white" />
+                    </a>
+                  </div>
                 </div>
+              </div>
+              <div id="parte_texto">
+                <h1>Welcome!</h1>
+                <p>
+                  Hello! My name is Victor Villazante and <br />
+                  I am a passionate software developer. <br />
+                  I like backend, frontend, mobile, cloud <br />
+                  computing development and data analysis
+                </p>
+                <button className="btn">Show my proyects</button>
               </div>
             </div>
           </div>
         </div>
-
-        <section id="acerca-de" class="container">
-          <div id="acerca-de-gift">
+        <div id="acerca-de-ref"></div>
+        <section id="acerca-de" className="container">
+          <h2>Acerca de mí</h2>
+          {/* <div id="acerca-de-gift">
             <img src="imagen-city.gif" alt="GIF repetido infinitamente" />
-          </div>
-          <div class="notebook">
+          </div> */}
+          {/* <div class="notebook">
             <div class="page">1</div>
             <div class="page">2</div>
-          </div>
-
-          <div class="paper" id="acerca-de-texto">
-            <h2>Acerca de mí</h2>
-            <p class="acerca">
-              ¡Hola! Mi nombre es Victor Villazante, y soy un apasionado
-              desarrollador de software. Desde muy joven, descubrí mi
-              fascinación por la creación de soluciones tecnológicas innovadoras
-              que puedan impactar de manera positiva en la vida de las personas.
-            </p>
-
-            {/* <p class="acerca">
-              Mi objetivo siempre ha sido superar los desafíos técnicos y
-              entregar productos de calidad que cumplan con las expectativas de
-              los clientes.
-            </p>
-
-            <p class="acerca">
-              Mi experiencia abarca un amplio de tecnologias de desarrollo de
-              software y estoy constantemente actualizándome y aprendiendo para
-              mantenerme al tanto de las últimas tendencias en el mundo del
-              desarrollo de software.
-            </p>
-
-            <p class="acerca">
-              Lo que más me entusiasma de mi trabajo es la capacidad de
-              transformar ideas abstractas en productos tangibles que mejoren la
-              vida cotidiana de las personas. Me encanta colaborar en equipo,
-              enfrentar desafíos complejos y encontrar soluciones creativas para
-              los problemas que se presentan.
-            </p>
-
-            <p class="acerca">
-              Además de mi experiencia técnica, me considero una persona con
-              excelentes habilidades de comunicación y capacidad para trabajar
-              en entornos dinámicos y colaborativos.
-            </p>
-
-            <p class="acerca">
-              Este portafolio es una muestra de algunos de los proyectos en los
-              que he trabajado y las habilidades que he desarrollado a lo largo
-              de mi carrera. Si estás buscando un desarrollador de software
-              apasionado, comprometido y proactivo, no dudes en ponerte en
-              contacto conmigo. Estaré encantado de formar parte de tu equipo y
-              ayudarte a alcanzar tus metas tecnológicas.
-            </p> */}
+          </div> */}
+          <div className="row" style={{ justifyContent: "center" }}>
+            <div className="paper" id="img-acerca-de-1">
+              <div className="paper" id="img-acerca-de-contenido">
+                <p className="acerca">
+                  "Hello! I'm passionate about the world of software development
+                  and data science. I find immense joy in crafting code that
+                  solves real-world problems and exploring the endless
+                  possibilities of data. With a deep curiosity for technology
+                  and a love for data-driven insights, I'm dedicated to
+                  mastering the art of creating innovative software solutions
+                  and uncovering meaningful patterns within data. Let's build a
+                  better future through code and data together!"
+                </p>
+              </div>
+            </div>
+            <div className="paper" id="img-acerca-de-2">
+              <div className="paper" id="img-acerca-de-contenido">
+                <p className="acerca">
+                  In addition to my passion for software development and data
+                  science, my family holds a special place in my heart. This
+                  close-knit circle includes not only my loved ones but also my
+                  feline companion. My family provides me with unwavering
+                  support and a source of inspiration, grounding me in the midst
+                  of challenging projects and demanding work. My cat, with its
+                  playful antics and soothing presence, reminds me to find joy
+                  in life's simple moments. They are my pillars of strength, and
+                  I cherish every moment I spend with them, both in my personal
+                  life and throughout my professional journey
+                </p>
+              </div>
+            </div>
+            <div className="paper" id="img-acerca-de-3">
+              <div className="paper" id="img-acerca-de-contenido">
+                <p className="acerca">
+                  Sports play a significant role in my life, and two of my
+                  favorite activities are running and soccer. Beyond being a
+                  source of physical fitness, sports are a way for me to
+                  challenge myself, stay disciplined, and maintain a healthy
+                  balance in life. Running allows me to push my limits, find
+                  mental clarity, and experience the joy of achieving personal
+                  goals one stride at a time. On the other hand, soccer provides
+                  a sense of camaraderie, teamwork, and the thrill of
+                  competition. Both running and soccer contribute to my overall
+                  well-being, teaching me valuable lessons in dedication,
+                  perseverance, and the importance of a healthy, active
+                  lifestyle.
+                </p>
+              </div>
+            </div>
+            <div className="paper" id="img-acerca-de-4">
+              <div class="paper" id="img-acerca-de-contenido">
+                <p class="acerca">
+                  My hobbies are an integral part of my life, and they encompass
+                  a diverse range of interests, including video games, anime,
+                  and movies. Video games offer me not only entertainment but
+                  also a platform for problem-solving and strategic thinking. I
+                  enjoy immersing myself in virtual worlds and exploring the
+                  creative landscapes they offer.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
-        <section id="proyectos" class="container">
+        <section id="proyectos" className="container">
+          <div id="proyectos-ref"> </div>
           <h2>Proyectos</h2>
           <Carousel
             showThumbs={false}
             showStatus={false}
             infiniteLoop={true}
             centerMode={true}
-            centerSlidePercentage={33.333333}
+            centerSlidePercentage={numeroElementos}
             renderArrowPrev={renderCustomArrowPrev}
             renderArrowNext={renderCustomArrowNext}
           >
@@ -527,33 +649,33 @@ const App = () => {
                 <p>Contenido de la tarjeta 1</p>
               </div>
             </div>
-            <div class="card" alt="Card 2">
-              <div class="card-img-top" alt="...">
-                <div class="imagen" alt="..."></div>
+            <div className="card" alt="Card 2">
+              <div className="card-img-top" alt="...">
+                <div className="imagen" alt="..."></div>
               </div>
-              <div class="card-body">
-                <h5 class="card-title">Proyecto 1</h5>
-                <p class="card-text">
+              <div className="card-body">
+                <h5 className="card-title">Proyecto 1</h5>
+                <p className="card-text">
                   This is a wider card with supporting text below as a natural
                   lead-in to additional content. This content is a little bit
                   longer.
                 </p>
-                <button type="button" class="btn btn-success">
+                <button type="button" className="btn btn-success">
                   Ver proyecto
                 </button>
 
                 <button
                   type="button"
-                  class="btn btn-info"
+                  className="btn btn-info"
                   onClick={() => setVerVideo(true)}
                 >
                   Ver demostracion
                 </button>
               </div>
-              <div class="card-footer">
-                <div class="row enlaces-proyectos">
-                  <i class="devicon-github-original-wordmark colored"></i>
-                  <i class="devicon-docker-plain-wordmark colored"></i>
+              <div className="card-footer">
+                <div className="row enlaces-proyectos">
+                  <i className="devicon-github-original-wordmark colored"></i>
+                  <i className="devicon-docker-plain-wordmark colored"></i>
                 </div>
               </div>
             </div>
@@ -561,6 +683,7 @@ const App = () => {
         </section>
         <section id="tecnologias" class="container">
           <h2>Tecnologias</h2>
+          <div id="tecnologias-ref"></div>
           <div className="container" id="tecnologias-contenedor">
             <div className="row">
               {items.map((elem, index) => {
@@ -584,7 +707,7 @@ const App = () => {
           </div>
         </section>
 
-        <section id="contacto" class="container">
+        {/* <section id="contacto" class="container">
           <h2>Contacto</h2>
           <form>
             <div id="scrollToRef" class="form-group">
@@ -618,9 +741,9 @@ const App = () => {
               Enviar
             </button>
           </form>
-        </section>
+        </section> */}
 
-        <footer class="bg-light text-center">
+        <footer className="bg-light text-center">
           <p>&copy; 2023 Mi Portafolio. Todos los derechos reservados.</p>
         </footer>
         <div style={{ zIndex: 2 }}>
@@ -630,20 +753,26 @@ const App = () => {
             onRequestClose={() => setVerVideo(false)}
             style={{
               content: {
-                width: "1000px",
-                height: "700px",
+                width: "100vw",
+                height: "80vh",
                 margin: "auto",
-                background: "#48ACF0",
+                background: "#007ea7",
+                left: "0px",
               },
             }}
           >
             <iframe
               width="100%"
               height="90%"
-              src="https://www.youtube.com/embed/bTVhlONQvEs"
+              src="https://www.youtube.com/embed/eakalRnzN28"
               title="Video"
               allowFullScreen
+              id="video"
+              onLoad={() => hideLoader()}
             />
+            <div className="loader-overlay">
+              <div className="loader"></div>
+            </div>
             <button
               className="btn btn-danger"
               onClick={() => setVerVideo(false)}
