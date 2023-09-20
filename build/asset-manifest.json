@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/portafolioProyectos/build/static/css/main.3bdcc13a.css",
+    "main.js": "/portafolioProyectos/build/static/js/main.fd9db253.js",
+    "static/js/787.ae0d8d37.chunk.js": "/portafolioProyectos/build/static/js/787.ae0d8d37.chunk.js",
+    "static/media/img_ejemplo_proyecto.png": "/portafolioProyectos/build/static/media/img_ejemplo_proyecto.114a6424ba9594455b26.png",
+    "static/media/perfil_4.png": "/portafolioProyectos/build/static/media/perfil_4.9b06de2a5cb491b6832b.png",
+    "static/media/imagen_personal.png": "/portafolioProyectos/build/static/media/imagen_personal.22fef2d9cf1be468c11a.png",
+    "static/media/logo.svg": "/portafolioProyectos/build/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/slick.svg": "/portafolioProyectos/build/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/portafolioProyectos/build/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/portafolioProyectos/build/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "index.html": "/portafolioProyectos/build/index.html",
+    "static/media/slick.woff": "/portafolioProyectos/build/static/media/slick.295183786cd8a1389865.woff",
+    "main.3bdcc13a.css.map": "/portafolioProyectos/build/static/css/main.3bdcc13a.css.map",
+    "main.fd9db253.js.map": "/portafolioProyectos/build/static/js/main.fd9db253.js.map",
+    "787.ae0d8d37.chunk.js.map": "/portafolioProyectos/build/static/js/787.ae0d8d37.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3bdcc13a.css",
+    "static/js/main.fd9db253.js"
+  ]
+}
