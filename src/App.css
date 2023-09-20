@@ -1,6 +1,6 @@
 * {
   font-family: 'Poppins', sans-serif;
-  font-size:16px;
+  font-size:14px;
   letter-spacing: 1.5px;
 }
 
@@ -45,7 +45,7 @@
 }
 
 .acerca {
-  text-align: justify;
+  color: white;
 }
 
 .icon-tecnologies {
@@ -284,7 +284,46 @@
   background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg");
 
 }
+#dart-icon {
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original-wordmark.svg");
 
+}
+#sass-icon {
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg");
+
+}
+#java-icon {
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg");
+
+}
+#typescript-icon {
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg");
+
+}
+#php-icon {
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg");
+
+}
+#express-icon {
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg");
+
+}
+#bootstrap-icon {
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg");
+
+}
+#nginx-icon {
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg");
+
+}
 #sqlite-icon:hover {
   transition: 1s ease;
   background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-plain.svg");
@@ -322,7 +361,14 @@
   transition: 1s ease;
   background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg");
 }
-
+#redis-icon {
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg");
+}
+#redis-icon:hover {
+  transition: 1s ease;
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg");
+}
 section#tecnologias.container {
   width: 100vw;
   max-width: 100vw;
@@ -336,7 +382,7 @@ h2 {
   /* text-decoration: underline; */
   /* margin-bottom: 20px; */
   margin: 0;
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
   padding: 20px;
   background: #007EA7;
   text-decoration: none;
@@ -438,6 +484,7 @@ i {
   top: -400;
   z-index: 1;
   transition: 2s ease;
+  background: #f0eff4;
 }
 
 .card:hover button {
@@ -513,7 +560,7 @@ i {
 #elementos-contenido-inicial {
   padding: 0;
   margin: 0;
-  border-bottom: solid 7px #f0eff4;
+  /* border-bottom: solid 7px #f0eff4; */
   background: url("https://images.unsplash.com/photo-1541240290619-3f2fad86473d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80");
   background-position: center;
   background-repeat: no-repeat;
@@ -553,7 +600,7 @@ i {
 #parte_texto button {
   width: 50%;
   margin: 0 auto;
-  background-color: #54af98;
+  background-color: #007ea7;
   color: white;
 }
 
@@ -634,9 +681,11 @@ i {
 } */
 
 #img_perfil {
-  background-image: url('images/captura_imagen-removebg.png');
+  background-image: url('images/perfil_4.png');
+  background-position: center;
   width: 500px;
-  height: 400px;
+  height: 500px;
+  margin-top: 70px;
   background-size: contain;
   background-repeat: no-repeat;
   border-radius: 10%;
@@ -738,10 +787,7 @@ section#acerca-de {
   width: 100%;
   max-width: 100%;
   color: #54af98;
-  padding-top: 40px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 20px;
+  padding: 0px !important;
   display: flex;
   flex-direction: column;
 }
@@ -784,7 +830,7 @@ section#acerca-de #opciones{
 /* Carrousel slick */
 
 section#acerca-de #img-acerca-de-1,#img-acerca-de-2,#img-acerca-de-3,#img-acerca-de-4 {
-  width: 500px;
+  width: 30vw;
   font-weight: 900;
   border-radius: 10px;
   transition: all 2s;
@@ -796,6 +842,7 @@ section#acerca-de #img-acerca-de-1,#img-acerca-de-2,#img-acerca-de-3,#img-acerca
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url("https://img.freepik.com/free-vector/office-background-video-conferencing_23-2148654417.jpg?w=1380&t=st=1694272048~exp=1694272648~hmac=ade7e5f9344e7f3ffa518003b2cc158bc9585bf0ef49eb12873ddb907af5a2e1");
+  opacity: .8
 }
 section#acerca-de #img-acerca-de-2 {
   
@@ -814,7 +861,7 @@ section#acerca-de #img-acerca-de-contenido {
   height: auto;
   min-height: 100%;
   padding: 40px;
-  background: linear-gradient(135deg, #bababa 4%,#f1f1f1 29%,#ffffff 47%,#ffffff 47%,#f6f6f6 67%,#f6f6f6 67%,#bababa 93%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */  color: black;
+  background: rgba(0, 0, 0, 0.829);  
   /*border: 2px solid #54af98;*/
   text-align: center;
   justify-content: center;
@@ -867,7 +914,7 @@ section#acerca-de #acerca-de-texto {
 .nav {
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 100vw;
   background-color: transparent;
   color: #fff;
   font-weight: bolder;
@@ -892,7 +939,7 @@ section#acerca-de #acerca-de-texto {
 }
 
 .nav a {
-  color: #201e1f;
+  color: black;
   text-decoration: none;
   padding: 5px 10px;
   border-radius: 5px;
@@ -900,7 +947,7 @@ section#acerca-de #acerca-de-texto {
 
 #navegador .nav {
   line-height: 40px;
-  background: #F0EFF4;
+  background: #f0eff4;
   color: #201e1f !important;
   z-index: 10;
 }
@@ -919,18 +966,28 @@ section#acerca-de #acerca-de-texto {
 #contenedor-technologies {
   padding-top: 20px;
 }
-
+#acerca-de .row {
+  max-width: 100vw;
+  padding-right: 5%;
+  padding-left: 5%;
+  justify-content: space-between;
+}
 #tecnologias-contenedor {
   max-width: 100%;
   margin: 0;
   padding: 0;
-  width: 90%;
+  width: 100%;
   margin: auto;
   text-align: center;
+
 }
 
 #tecnologias-contenedor .row {
+  max-width: 100vw;
+  padding-right: 5%;
+  padding-left: 5%;
   justify-content: center;
+
 }
 
 .paper {
@@ -1071,6 +1128,9 @@ section#acerca-de #acerca-de-texto {
     margin-right: 10px;
     display: inline-block ;
   }
+  section#acerca-de #img-acerca-de-1, #img-acerca-de-2, #img-acerca-de-3, #img-acerca-de-4{
+    width: 100%;
+  }
 }
 
 .spinner{
@@ -1103,4 +1163,43 @@ section#acerca-de #acerca-de-texto {
   100% {
     transform: scale(1);
   }
+}
+footer{
+  background-color: #f0eff4;
+}
+
+#tecnologias-proyecto-modal{
+  height: 60px;
+}
+#tecnologias-proyecto-modal .element-icon{
+  height: 50px;
+  width: 200px;
+  text-align: center;
+}
+#tecnologias-proyecto-modal .icon-tecnologies{
+  height: 100%;
+}
+#tecnologias-proyecto-modal span{
+  color: white;
+  font-size: 18px;
+  
+}
+.element-icon:hover #img{
+  width: 50px !important;
+  height: 40px !important;
+  margin: 0 auto;
+
+}
+.element-icon #img{
+  width: 50px !important;
+  height: 40px !important;
+  object-fit: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 auto !important;
+}
+#tecnologias .element-icon{
+width: 170px !important;
+height: 80px !important;
 }

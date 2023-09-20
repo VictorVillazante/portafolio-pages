@@ -13,52 +13,50 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const App = () => {
-  setInterval(miFuncion, 10000);
+  setInterval(miFuncion, 2000);
 
   let contador = 0;
   function miFuncion() {
     //console.log("Esta función se ejecuta cada 40 segundos."+((contador++)%4));
     const elemento1 = document.getElementById("img-acerca-de-1");
     const elemento2 = document.getElementById("img-acerca-de-2");
-    const elemento3 = document.getElementById("img-acerca-de-3");
-    const elemento4 = document.getElementById("img-acerca-de-4");
+    // const elemento3 = document.getElementById("img-acerca-de-3");
+    // const elemento4 = document.getElementById("img-acerca-de-4");
     elemento1.style.borderRadius = "10px";
     elemento2.style.borderRadius = "10px";
-    elemento3.style.borderRadius = "10px";
-    elemento4.style.borderRadius = "10px";
+    // elemento3.style.borderRadius = "10px";
+    // elemento4.style.borderRadius = "10px";
     elemento1.style.boxShadow = "none";
     elemento2.style.boxShadow = "none";
-    elemento3.style.boxShadow = "none";
-    elemento4.style.boxShadow = "none";
+    // elemento3.style.boxShadow = "none";
+    // elemento4.style.boxShadow = "none";
 
     contador = contador + 1;
-    if (contador % 4 == 0) {
+    if (contador % 2 == 0) {
       const elemento = document.getElementById("img-acerca-de-1");
-      console.log("Actualizando img-acerca-de-1");
       elemento.style.borderRadius = "100px";
       elemento.style.boxShadow = "13px 13px 39px 2px rgba(0,0,0,0.69)";
     }
-    if (contador % 4 == 1) {
+    if (contador % 2 == 1) {
       const elemento = document.getElementById("img-acerca-de-2");
-      console.log("Actualizando img-acerca-de-2");
       elemento.style.borderRadius = "100px";
       elemento.style.boxShadow = "13px 13px 39px 2px rgba(0,0,0,0.69)";
     }
-    if (contador % 4 == 2) {
-      const elemento = document.getElementById("img-acerca-de-3");
-      console.log("Actualizando img-acerca-de-3");
-      elemento.style.borderRadius = "100px";
-      elemento.style.boxShadow = "13px 13px 39px 2px rgba(0,0,0,0.69)";
-    }
-    if (contador % 4 == 3) {
-      const elemento = document.getElementById("img-acerca-de-4");
-      console.log("Actualizando img-acerca-de-4");
-      elemento.style.borderRadius = "100px";
-      elemento.style.boxShadow = "13px 13px 39px 2px rgba(0,0,0,0.69)";
-    }
+    // if (contador % 4 == 2) {
+    //   const elemento = document.getElementById("img-acerca-de-3");
+    //   console.log("Actualizando img-acerca-de-3");
+    //   elemento.style.borderRadius = "100px";
+    //   elemento.style.boxShadow = "13px 13px 39px 2px rgba(0,0,0,0.69)";
+    // }
+    // if (contador % 4 == 3) {
+    //   const elemento = document.getElementById("img-acerca-de-4");
+    //   console.log("Actualizando img-acerca-de-4");
+    //   elemento.style.borderRadius = "100px";
+    //   elemento.style.boxShadow = "13px 13px 39px 2px rgba(0,0,0,0.69)";
+    // }
   }
   // Manejar ancho pantalla
-  const [numeroElementos, setNumeroElementos] = useState(window.innerWidth);
+  const [numeroElementos, setNumeroElementos] = useState(100 / 3);
 
   // Función para manejar el evento de cambio de tamaño
   const manejarCambioDeTamaño = () => {
@@ -73,10 +71,11 @@ const App = () => {
   };
 
   useEffect(() => {
+    manejarCambioDeTamaño();
     setTimeout(() => {
       let elem = document.getElementById("spinner");
       elem.style.display = "none";
-    }, 5000);
+    }, 2000);
     // Agregar un event listener para el evento resize
     window.addEventListener("resize", manejarCambioDeTamaño);
 
@@ -88,6 +87,9 @@ const App = () => {
   // Manejar ancho pantalla
 
   const [verVideo, setVerVideo] = useState(false);
+  const [verDetalle, setVerDetalle] = useState(false);
+  const [detalleModal, setDetalleModal] = useState("");
+
   // useEffect(() => {
   //   var pathEls = document.querySelectorAll("path");
   //   for (var i = 0; i < pathEls.length; i++) {
@@ -120,6 +122,524 @@ const App = () => {
   //     });
   //   }
   // });
+  const [urlVideo, setUrlVideo] = useState("");
+  let proyectos = [
+    {
+      img: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKNgM1Rdf3DrfgvjGWJ7FOIf6PqKTqrUQGIr8iCz5Ni8OveUgfJPm1B9JF-iP8OXN8VUw&usqp=CAU')",
+      titulo: "App wawa learning",
+      descripcion:
+        "Aplicacion flutter con rutas, machine learning(teachable machine),uso de puv.dev uso de camara, uso de almacenamiento,uso de asistente, creacion de juegos para niños interactivos, reproductor mp3",
+      url_github:
+        "https://github.com/VictorVillazante/App-for-education-of-young-children-with-Teachable-Machine_IA",
+      url_proyecto: "",
+      url_demostracion: "https://www.youtube.com/embed/eakalRnzN28",
+      url_docker: "",
+      detalles: {
+        titulo: "App wawa learning",
+        tecnologias: ["flutter", "tensorflow", "dart"],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+    {
+      img: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQenQHAvuHormTf5QE_9pPcKBB5Di_MmisVXQ&usqp=CAU')",
+      titulo: "Galeria dragon ball",
+      descripcion: "React, Uso API drango ball, routes V5, hooks",
+      url_github:
+        "https://github.com/VictorVillazante/galeriaReactRouteV5DragonBall",
+      url_proyecto: "https://cozy-souffle-56714d.netlify.app",
+      url_demostracion: "",
+      url_docker: "",
+      detalles: {
+        titulo: "Galeria dragon ball",
+        tecnologias: ["react", "javascript", "html", "css"],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+    {
+      img: "url('https://doralfamilyjournal.com/wp-content/uploads/2021/06/bitcoins-800x445.jpg')",
+      titulo: "Calculador de cambios monedas digitales",
+      descripcion: "Uso API monedas digitales, VUE, routes",
+      url_github:
+        "https://github.com/VictorVillazante/Cripto-information-vue-firebase-http-sass",
+      url_proyecto: "https://timely-lebkuchen-b1a4f1.netlify.app",
+      url_demostracion: "",
+      url_docker: "",
+      detalles: {
+        titulo: "Calculador de cambios monedas digitales",
+        tecnologias: ["vue", "javascript", "html", "sass"],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+    {
+      img: "url('https://yosoytuprofe.20minutos.es/wp-content/uploads/2019/11/cuadrados-m%C3%A1gicos.png')",
+      titulo: "Magic Square",
+      descripcion: "Android Studio, Algoritmo A*, manejo de interfaces java",
+      url_github:
+        "https://github.com/VictorVillazante/cuadradoMagicoAlgoritmoA_IA",
+      url_proyecto: "",
+      url_demostracion: "https://www.youtube.com/embed/nBlF0eVBLLI ",
+      url_docker: "",
+      detalles: {
+        titulo: "Magic Square",
+        tecnologias: ["android", "java"],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+    {
+      img: "url('https://i.blogs.es/a8da14/650_1000_marvel-vs-dc-universos-warner-peliculas/1366_2000.png')",
+      titulo: "Heroes galery",
+      descripcion: "Uso angular routes, services, components",
+      url_github: "https://github.com/VictorVillazante/angular-heroes",
+      url_proyecto: "https://bespoke-centaur-dcce6e.netlify.app/home",
+      url_demostracion: "",
+      url_docker: "",
+      detalles: "",
+      detalles: {
+        titulo: "Heroes galery",
+        tecnologias: ["angular", "typescript", "html", "css"],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+    {
+      img: "url('https://images.unsplash.com/photo-1519520104014-df63821cb6f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmVycmV0ZXJpYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60')",
+      titulo: "Angular project hardware store web site",
+      descripcion: "Uso angular routes, services, components",
+      url_github: "https://github.com/VictorVillazante/ferreteriaAngular",
+      url_proyecto: "",
+      url_demostracion: "",
+      url_docker: "",
+      detalles: "",
+      detalles: {
+        titulo: "Angular project hardware store web site",
+        tecnologias: ["angular", "typescript", "css", "html"],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+    {
+      img: "url('https://images.unsplash.com/photo-1519520104014-df63821cb6f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmVycmV0ZXJpYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60')",
+      titulo: "PHP project hardware store web site",
+      descripcion: "Uso php, modelo MVC",
+      url_github: "https://github.com/VictorVillazante/ferreteriaPHP",
+      url_proyecto: "",
+      url_demostracion: "",
+      url_docker: "",
+      detalles: {
+        titulo: "PHP project hardware store web site",
+        tecnologias: ["php", "javascript", "html", "css"],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+    {
+      img: "url('https://images.unsplash.com/photo-1597250387976-ff61052d5e89?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8dGFsbGVyJTIwbWVjYW5pY298ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60')",
+      titulo: "Angular project mechanical workshop web site",
+      descripcion: "Uso php, modelo MVC",
+      url_github: "https://github.com/VictorVillazante/tallerMecanicoPHP",
+      url_proyecto: "",
+      url_demostracion: "",
+      url_docker: "",
+      detalles: {
+        titulo: "Angular project mechanical workshop web site",
+        tecnologias: ["angular", "typescript", "html", "css"],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+    {
+      img: "url('https://images.unsplash.com/photo-1553688738-a278b9f063e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')",
+      titulo: "Animal shelter site web",
+      descripcion: "Uso angular, ABM",
+      url_github: "https://github.com/VictorVillazante/RefugioPeluchin-ABM",
+      url_proyecto: "",
+      url_demostracion: "",
+      url_docker: "",
+      detalles: {
+        titulo: "Animal shelter site web",
+        tecnologias: ["angular", "typescript", "html", "css"],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+    {
+      img: "url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')",
+      titulo: "Informatic services web page",
+      descripcion: "CSS, HTML web page",
+      url_github:
+        "https://github.com/VictorVillazante/sitioWebServiciosInformatica",
+      url_proyecto: "",
+      url_demostracion: "",
+      url_docker: "",
+      detalles: {
+        titulo: "Informatic services web page",
+        tecnologias: ["html", "css"],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+    {
+      img: "url('https://cocawi.com/wp-content/uploads/2023/06/icono_cocawi.png')",
+      titulo: "Backend COCAWI lms (intership)",
+      descripcion: "Project backend to for a social enterprise",
+      url_github: "",
+      url_proyecto: "",
+      url_demostracion: "",
+      url_docker: "",
+      detalles: {
+        titulo: "Backend COCAWI lms (intership)",
+        tecnologias: [
+          "node",
+          "javascript",
+          "express",
+          "youtube-api",
+          "firebase",
+        ],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+    {
+      img: "url('https://cocawi.com/wp-content/uploads/2023/06/icono_cocawi.png')",
+      titulo: "Frontend COCAWI lms (intership)",
+      descripcion: "Project frontend for a social enterprise",
+      url_github: "",
+      url_proyecto: "",
+      url_demostracion: "",
+      url_docker: "",
+      detalles: "",
+      detalles: {
+        titulo: "Frontend COCAWI lms (intership)",
+        tecnologias: [
+          "angular",
+          "typescript",
+          "css",
+          "youtube-api",
+          "firebase",
+        ],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+    {
+      img: "url('https://cocawi.com/wp-content/uploads/2023/06/icono_cocawi.png')",
+      titulo: "Mobile COCAWI lms (intership)",
+      descripcion: "Project mobile for a social enterprise, lms",
+      url_github: "",
+      url_proyecto: "",
+      url_demostracion: "",
+      url_docker: "",
+      detalles: {
+        titulo: "Mobile COCAWI lms (intership)",
+        tecnologias: ["flutter", "dart", "youtube-api", "firebase"],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+    {
+      img: "url('https://bicidatos.org/wp-content/uploads/2021/12/bicidatos_bolivia-2-768x481.png')",
+      titulo: "Bicidatos app (intership)",
+      descripcion:
+        "Update of interfaces, create a registration of cycling tours, create, bicycle and cyclist census with the app",
+      url_github: "",
+      url_proyecto: "",
+      url_demostracion: "",
+      url_docker: "",
+      detalles: {
+        titulo: "Bicidatos app (intership)",
+        tecnologias: ["android", "java", "firebase", "google-maps"],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+    {
+      img: "url('https://bicidatos.org/wp-content/uploads/2021/12/bicidatos_bolivia-2-768x481.png')",
+      titulo: "Bicidatos web page (intership)",
+      descripcion:
+        "Update of interfaces, create a registration of cycling tours a view of cycling tours",
+      url_github: "",
+      url_proyecto: "",
+      url_demostracion: "",
+      url_docker: "",
+      detalles: {
+        titulo: "Bicidatos web page (intership)",
+        tecnologias: ["react", "javascript", "firebase", "google-maps"],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+    {
+      img: "url('https://images.unsplash.com/photo-1594394489098-74ac04c0fc2e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHlvdXR1YmV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60')",
+      titulo: "Yourvideos clone",
+      descripcion: "A social network to share videos where you can ",
+      url_github: "https://github.com/VictorVillazante/youtube-clone",
+      url_proyecto: "",
+      url_demostracion: "",
+      url_docker: "",
+      detalles: {
+        titulo: "Yourvideos clone",
+        tecnologias: ["react-native", "javascript"],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+    {
+      img: "url('https://images.unsplash.com/photo-1606857521015-7f9fcf423740?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZW1wbG95ZWVzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60')",
+      titulo: "Searching Employee",
+      descripcion:
+        "Search employees with requirements of your space in your enterprise",
+      url_github:
+        "https://github.com/VictorVillazante/React-native-app-employee",
+      url_proyecto: "",
+      url_demostracion: "",
+      url_docker: "",
+      detalles: {
+        titulo: "Searching Employee",
+        tecnologias: ["react-native", "javascript", "cloudinary", "mongodb"],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+    {
+      img: "url('https://images.unsplash.com/photo-1572950947476-26a6e4111e80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHN0aWNrZXJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60')",
+      titulo: "App stickers gifts api",
+      descripcion:
+        "Search gifts, stickers to share in your social networks. Download that and save that in your device",
+      url_github: "https://github.com/VictorVillazante/app-stickers-gifts-api",
+      url_proyecto: "",
+      url_demostracion: "",
+      url_docker: "",
+      detalles: {
+        titulo: "App stickers gifts api",
+        tecnologias: ["vue", "javascript", "api-stickers"],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+    {
+      img: "url('https://images.unsplash.com/photo-1608979827489-2b855e79debe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aGVhbHRoJTIwY2VudGVyfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60')",
+      titulo: "Frontend health center",
+      descripcion:
+        "A work to administrate a health center, obtain virtual health tickets, obtain information about healthy services",
+      url_github:
+        "https://github.com/VictorVillazante/frontend-keycloak-microservicios",
+      url_proyecto: "",
+      url_demostracion: "",
+      url_docker: "",
+      detalles: {
+        titulo: "Frontend health center",
+        tecnologias: ["angular", "typescript", "keycloak", "css", "bootstrap"],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+    {
+      img: "url('https://images.unsplash.com/photo-1608979827489-2b855e79debe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aGVhbHRoJTIwY2VudGVyfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60')",
+      titulo: "Backend health center",
+      descripcion:
+        "A work to administrate a health center, obtain virtual health tickets, obtain information about healthy services. Priorize high availability, autorization, autentication with microservices",
+      url_github:
+        "https://github.com/VictorVillazante/arq-microservices-proyect",
+      url_proyecto: "",
+      url_demostracion: "",
+      url_docker: "",
+      detalles: {
+        titulo: "Frontend health center",
+        tecnologias: ["spring", "java", "microservices"],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+    {
+      img: "url('https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3lzdGVtc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60')",
+      titulo: "Queue producer",
+      descripcion:
+        "Project with queue that is use to share information for example messages",
+      url_github: "https://github.com/VictorVillazante/topic-exchange-producer",
+      url_proyecto: "",
+      url_demostracion: "",
+      url_docker: "",
+      detalles: {
+        titulo: "Queue producer",
+        tecnologias: ["spring", "java", "rabbit-mq"],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+    {
+      img: "url('https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3lzdGVtc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60')",
+      titulo: "Queue consumer",
+      descripcion:
+        "Project with queue that is use to share information for example messages",
+      url_github: "https://github.com/VictorVillazante/topic-exchange-consumer",
+      url_proyecto: "",
+      url_demostracion: "",
+      url_docker: "",
+      detalles: {
+        titulo: "Queue consumer",
+        tecnologias: ["spring", "java", "rabbit-mq"],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+    {
+      img: "url('https://images.unsplash.com/photo-1619468129361-605ebea04b44?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80')",
+      titulo: "Mapbox angular",
+      descripcion: "Register of a route, draw a map, share with your friens",
+      url_github: "https://github.com/VictorVillazante/mabox-angular-borrador",
+      url_proyecto: "",
+      url_demostracion: "",
+      url_docker: "",
+      detalles: {
+        titulo: "Mapbox angular",
+        tecnologias: ["angular", "typescript", "css", "mapbox"],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+    {
+      img: "url('https://images.unsplash.com/photo-1573496773905-f5b17e717f05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3lzdGVtJTIwZW5naW5lZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60')",
+      titulo: "Todo JWT spring",
+      descripcion: "ABM spring with token jwt",
+      url_github: "https://github.com/VictorVillazante/TODOconJWTBackend",
+      url_proyecto: "",
+      url_demostracion: "",
+      url_docker: "",
+      detalles: {
+        titulo: "Todo JWT spring",
+        tecnologias: ["spring", "java", "jwt"],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+    {
+      img: "url('https://images.unsplash.com/photo-1581093804475-577d72e38aa0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHN5c3RlbSUyMGVuZ2luZWVyfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60')",
+      titulo: "Spring nginx",
+      descripcion:
+        "Better availability in backend with nginx load balancer in diferents destination",
+      url_github:
+        "https://github.com/VictorVillazante/backendHomeworkTodoNginx",
+      url_proyecto: "",
+      url_demostracion: "",
+      url_docker: "",
+      detalles: {
+        titulo: "Spring nginx",
+        tecnologias: ["spring", "java", "nginx"],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+    {
+      img: "url('https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y29tcHV0ZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60')",
+      titulo: "Spring todo",
+      descripcion: "simple TODO, ABM in spring",
+      url_github: "https://github.com/VictorVillazante/TODO",
+      url_proyecto: "",
+      url_demostracion: "",
+      url_docker: "",
+      detalles: {
+        titulo: "Spring todo",
+        tecnologias: ["spring", "java"],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+    {
+      img: "url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2xvdGhlJTIwc3RvcmV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60')",
+      titulo: "Frontend clothe store",
+      descripcion: "Clothe store with API REST angular with spring",
+      url_github:
+        "https://github.com/VictorVillazante/frontend-tienda-ropa-2022",
+      url_proyecto: "",
+      url_demostracion: "",
+      url_docker: "",
+      detalles: {
+        titulo: "Frontend clothe store",
+        tecnologias: ["angular", "typescript", "css", "bootstrap"],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+    {
+      img: "url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2xvdGhlJTIwc3RvcmV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60')",
+      titulo: "Backend clothe store",
+      descripcion: "Clothe store with API REST angular with spring",
+      url_github:
+        "https://github.com/VictorVillazante/backend-tienda-ropa-2022",
+      url_proyecto: "",
+      url_demostracion: "",
+      url_docker: "",
+      detalles: {
+        titulo: "Backend clothe store",
+        tecnologias: ["java", "spring"],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+    {
+      img: "url('https://images.unsplash.com/photo-1448932223592-d1fc686e76ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fGNvbXB1dGVyfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60')",
+      titulo: "Backend todo nodejs docker compose",
+      descripcion: "TODO with API_REST, mysql, nodejs express, docker compose",
+      url_github:
+        "https://github.com/VictorVillazante/DockerCompose-node-mysql",
+      url_proyecto: "",
+      url_demostracion: "",
+      url_docker: "",
+      detalles: {
+        titulo: "Backend todo nodejs docker compose",
+        tecnologias: ["node", "docker"],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+    {
+      img: "url('https://img.freepik.com/free-vector/chat-bot-concept-illustration_114360-5522.jpg?size=626&ext=jpg&ga=GA1.1.801317655.1686015080&semt=sph')",
+      titulo: "Chatbot telegram",
+      descripcion: "Chatbot with telegram in spring boot",
+      url_github: "https://github.com/VictorVillazante/demo-spring-boot-main",
+      url_proyecto: "",
+      url_demostracion: "",
+      url_docker: "",
+      detalles: {
+        titulo: "Chatbot telegram",
+        tecnologias: ["spring", "telegram"],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+    {
+      img: "url('https://www.protocol.com/media-library/elon-musk-s-twitter-account-bio-next-to-the-twitter-logo.jpg?id=29666042&width=1245&height=700&quality=85&coordinates=0%2C53%2C0%2C53')",
+      titulo: "Replic send tweets with caching",
+      descripcion: "Replic send tweets with caching, mysql, express, redis",
+      url_github: "https://github.com/VictorVillazante/redis-node-mysql",
+      url_proyecto: "",
+      url_demostracion: "",
+      url_docker: "",
+      detalles: {
+        titulo: "Replic send tweets with caching",
+        tecnologias: ["express", "mysql", "node", "redis"],
+        explicacion:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      },
+    },
+
+    {
+      img: "url('https://images.unsplash.com/photo-1483389127117-b6a2102724ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80')",
+      titulo: "Subiendo mas trabajos...",
+      descripcion:
+        "Trabajando para subir mas proyectos, demostraciones de mis repositorios",
+      url_github: "https://github.com/VictorVillazante",
+      url_proyecto: "",
+      url_demostracion: "",
+      url_docker: "",
+      detalles: "",
+    },
+  ];
+
   let items = [
     "html",
     "css",
@@ -129,7 +649,6 @@ const App = () => {
     "react",
     "android",
     "flutter",
-    "react",
     "spring",
     "node",
     "codeigniter",
@@ -142,6 +661,23 @@ const App = () => {
     "aws",
     "netlify",
     "docker",
+    "dart",
+    "sass",
+    "java",
+    "typescript",
+    "php",
+    "express",
+    "youtube-api",
+    "google-maps",
+    "react-native",
+    "cloudinary",
+    "keycloak",
+    "bootstrap",
+    "rabbit-mq",
+    "mapbox",
+    "jwt",
+    "nginx",
+    "telegram",
   ];
   const renderCustomArrowPrev = (onClickHandler, hasPrev, label) =>
     hasPrev && (
@@ -150,9 +686,47 @@ const App = () => {
         onClick={onClickHandler}
         aria-label={label}
       >
-        Anterior
+        Back
       </button>
     );
+  const verVideoDemostracion = (url) => {
+    setUrlVideo(url);
+    setVerVideo(true);
+  };
+  const verificarIconoExistente = (icono) => {
+    console.log(icono);
+    if (icono == "tensorflow-icon") {
+      return "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Tensorflow_logo.svg/115px-Tensorflow_logo.svg.png";
+    }
+    if (icono == "youtube-api-icon") {
+      return "https://img.freepik.com/free-vector/youtube-concept_23-2147862172.jpg?w=826&t=st=1695224281~exp=1695224881~hmac=60af6182e73a985437efd595eda450046e5a29b6d4176f1e23c72019121e99af";
+    }
+    if (icono == "google-maps-icon") {
+      return "https://1000marcas.net/wp-content/uploads/2020/10/Google-Maps-Logo-tumb-1280x720.png";
+    }
+    if (icono == "react-native-icon") {
+      return "https://www.inovex.de/wp-content/uploads/2018/03/react-native.png";
+    }
+    if (icono == "cloudinary-icon") {
+      return "https://res.cloudinary.com/demo/image/upload/e_shadow:90,x_15,y_15,co_rgb:0B70B6/c_pad,ar_1.0/w_200,f_auto,q_auto/cloudinary_icon.png";
+    }
+    if (icono == "mapbox-icon") {
+      return "https://avatars.githubusercontent.com/u/600935?s=200&v=4";
+    }
+    if (icono == "jwt-icon") {
+      return "https://jwt.io/img/icon.svg";
+    }
+    if (icono == "telegram-icon") {
+      return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZO22mm0NSyuaYfsXsAaVCz6OY02ndeRXjEg&usqp=CAU";
+    }
+    if (icono == "rabbit-mq-icon") {
+      return "https://www.jorgehernandezramirez.com/wp-content/uploads/2017/04/rabbitmq-logo.png";
+    }
+    if (icono == "keycloak-icon") {
+      return "https://blog.consdata.tech/assets/img/posts/2020-02-01-keycloak-uwierzytelnianie-autoryzacja-springboot-angular/Keycloak.png";
+    }
+    return "";
+  };
   const handleWhatssapp = () => {
     const phoneNumber = "74260360";
 
@@ -185,7 +759,7 @@ const App = () => {
         aria-label={label}
         style={{ position: "relative", top: 20 }}
       >
-        Siguiente
+        Next
       </button>
     );
   return (
@@ -194,273 +768,14 @@ const App = () => {
         <img src="carga.gif" alt="GIF infinito" />
       </div>
       <div className="App">
-        {/* <nav class="navbar navbar-expand-md navbar-light bg-light">
-          <a class="navbar-brand" href="#">
-            Mi Portafolio
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarNav"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item active">
-                <a class="nav-link" href="#">
-                  Inicio
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#acerca-de">
-                  Acerca de
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#proyectos">
-                  Proyectos
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#contacto">
-                  Contacto
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav> */}
+    
 
         <div id="contenido-inicial" className="jumbotron text-center">
           <video autoPlay loop muted>
             <source src="" type="video/mp4" />
             Tu navegador no admite el elemento de video.
           </video>
-          {/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
-          {/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
-          {/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
-          {/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
-          {/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
-          {/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
-          {/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
-          {/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
-          {/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
-          {/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
-          {/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
-          {/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
-          {/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
-          {/* <div className="wrapper">
-            <div className="neon">
-              <svg
-                version="1.1"
-                id="BG"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlnsXlink="http://www.w3.org/1999/xlink"
-                x="0px"
-                y="0px"
-                viewBox="0 0 954 242"
-                style={{ enableBackground: "new 0 0 934 242" }}
-                xmlSpace="preserve"
-              >
-                <g>
-                  <g>
-                    <path
-                      className="st0 letter"
-                      id="N"
-                      d="M156.3,35.8h59.3v13.5h-21.9v158.1H178L79.9,75L69.3,56.5h-1l2.4,18.8V191h21.9v13.5H33.4V191h21.9V49.3H33.4
-      V35.8h48.2l84.3,113.5l12.5,20.7h1.2l-1.4-20.7v-100h-21.9V35.8z"
-                    />
-                    <path
-                      className="st0 letter"
-                      id="N"
-                      d="M156.3,35.8h59.3v13.5h-21.9v158.1H178L79.9,75L69.3,56.5h-1l2.4,18.8V191h21.9v13.5H33.4V191h21.9V49.3H33.4
-      V35.8h48.2l84.3,113.5l12.5,20.7h1.2l-1.4-20.7v-100h-21.9V35.8z"
-                    />
-                    <path
-                      className="st0 letter"
-                      id="E"
-                      d="M407.4,35.8v39.5H392V54.6l-4.8-5.3h-59v62.4h40.7l3.6-3.6V97.9h15.4v41.2h-15.4V129l-3.6-3.9h-40.7V191h63.1
-      l4.8-4.8v-23.6h15.4v41.9H279.2V191h21.9V49.3h-21.9V35.8H407.4z"
-                    />
-                    <path
-                      className="st0 letter"
-                      id="O"
-                      d="M488.9,120.1c0-12.5,1.9-24.1,5.8-34.8c3.9-10.7,9.4-19.9,16.7-27.7c7.3-7.8,16.3-13.9,27-18.2
-      c10.7-4.3,22.9-6.5,36.5-6.5c13.7,0,25.9,2.2,36.6,6.5c10.8,4.3,19.8,10.4,27.2,18.2c7.4,7.8,13,17,16.9,27.7
-      c3.9,10.7,5.8,22.3,5.8,34.8c0,12.5-1.9,24.1-5.8,34.8c-3.9,10.7-9.5,19.9-16.9,27.7c-7.4,7.8-16.5,13.9-27.2,18.2
-      c-10.8,4.3-23,6.5-36.6,6.5c-13.7,0-25.8-2.2-36.5-6.5c-10.7-4.3-19.7-10.4-27-18.2c-7.3-7.8-12.9-17-16.7-27.7
-      C490.8,144.3,488.9,132.6,488.9,120.1z M519,120.1c0,10.3,1.2,19.9,3.5,28.9c2.3,9,5.9,16.8,10.7,23.4
-      c4.8,6.6,10.9,11.8,18.2,15.7c7.3,3.9,15.9,5.8,25.9,5.8c9.2,0,17.1-1.9,23.9-5.8c6.7-3.9,12.3-9.1,16.8-15.7
-      c4.4-6.6,7.7-14.4,10-23.4c2.2-9,3.4-18.6,3.4-28.9c0-10.3-1.2-19.9-3.5-28.9c-2.3-9-5.9-16.8-10.7-23.4
-      c-4.8-6.6-10.9-11.8-18.2-15.7c-7.3-3.9-16-5.8-26.1-5.8c-9.6,0-17.9,1.9-24.7,5.8c-6.8,3.9-12.4,9.1-16.7,15.7
-      c-4.3,6.6-7.5,14.4-9.4,23.4C520,100.2,519,109.8,519,120.1z"
-                    />
-                    <path
-                      className="st0 letter"
-                      id="N2"
-                      d="M854,35.8h59.3v13.5h-21.9v158.1h-15.7L777.6,75L767,56.5h-1l2.4,18.8V191h21.9v13.5h-59.3V191H753V49.3
-      h-21.9V35.8h48.2l84.3,113.5l12.5,20.7h1.2l-1.4-20.7v-100H854V35.8z"
-                    />
-                  </g>
-                  <g>
-                    <path
-                      className="st1"
-                      d="M156.3,35.8h59.3v13.5h-21.9v158.1H178L79.9,75L69.3,56.5h-1l2.4,18.8V191h21.9v13.5H33.4V191h21.9V49.3H33.4
-      V35.8h48.2l84.3,113.5l12.5,20.7h1.2l-1.4-20.7v-100h-21.9V35.8z"
-                    />
-                    <path
-                      className="st1"
-                      d="M407.4,35.8v39.5H392V54.6l-4.8-5.3h-59v62.4h40.7l3.6-3.6V97.9h15.4v41.2h-15.4V129l-3.6-3.9h-40.7V191h63.1
-      l4.8-4.8v-23.6h15.4v41.9H279.2V191h21.9V49.3h-21.9V35.8H407.4z"
-                    />
-                    <path
-                      className="st1"
-                      d="M488.9,120.1c0-12.5,1.9-24.1,5.8-34.8c3.9-10.7,9.4-19.9,16.7-27.7c7.3-7.8,16.3-13.9,27-18.2
-      c10.7-4.3,22.9-6.5,36.5-6.5c13.7,0,25.9,2.2,36.6,6.5c10.8,4.3,19.8,10.4,27.2,18.2c7.4,7.8,13,17,16.9,27.7
-      c3.9,10.7,5.8,22.3,5.8,34.8c0,12.5-1.9,24.1-5.8,34.8c-3.9,10.7-9.5,19.9-16.9,27.7c-7.4,7.8-16.5,13.9-27.2,18.2
-      c-10.8,4.3-23,6.5-36.6,6.5c-13.7,0-25.8-2.2-36.5-6.5c-10.7-4.3-19.7-10.4-27-18.2c-7.3-7.8-12.9-17-16.7-27.7
-      C490.8,144.3,488.9,132.6,488.9,120.1z M519,120.1c0,10.3,1.2,19.9,3.5,28.9c2.3,9,5.9,16.8,10.7,23.4
-      c4.8,6.6,10.9,11.8,18.2,15.7c7.3,3.9,15.9,5.8,25.9,5.8c9.2,0,17.1-1.9,23.9-5.8c6.7-3.9,12.3-9.1,16.8-15.7
-      c4.4-6.6,7.7-14.4,10-23.4c2.2-9,3.4-18.6,3.4-28.9c0-10.3-1.2-19.9-3.5-28.9c-2.3-9-5.9-16.8-10.7-23.4
-      c-4.8-6.6-10.9-11.8-18.2-15.7c-7.3-3.9-16-5.8-26.1-5.8c-9.6,0-17.9,1.9-24.7,5.8c-6.8,3.9-12.4,9.1-16.7,15.7
-      c-4.3,6.6-7.5,14.4-9.4,23.4C520,100.2,519,109.8,519,120.1z"
-                    />
-                    <path
-                      className="st1"
-                      d="M854,35.8h59.3v13.5h-21.9v158.1h-15.7L777.6,75L767,56.5h-1l2.4,18.8V191h21.9v13.5h-59.3V191H753V49.3
-      h-21.9V35.8h48.2l84.3,113.5l12.5,20.7h1.2l-1.4-20.7v-100H854V35.8z"
-                    />
-                  </g>
-                  <g>
-                    <polygon
-                      className="st2"
-                      points="173.9,215.4 78.7,86.9 78.7,183 100.7,183 100.7,212.5 25.4,212.5 25.4,183 47.3,183 47.3,57.3 
-      25.4,57.3 25.4,27.8 85.6,27.8 170.2,141.6 170.2,57.3 148.3,57.3 148.3,27.8 223.6,27.8 223.6,57.3 201.6,57.3 201.6,215.4 		"
-                    />
-                    <polygon
-                      className="st2"
-                      points="271.2,212.5 271.2,183 293.1,183 293.1,57.3 271.2,57.3 271.2,27.8 415.4,27.8 415.4,83.3 384,83.3 
-      384,57.7 383.6,57.3 336.1,57.3 336.1,103.7 364.5,103.7 364.5,89.9 395.9,89.9 395.9,147.2 364.5,147.2 364.5,133.2 336.1,133.2 
-      336.1,183 387.9,183 388.1,182.8 388.1,154.5 419.5,154.5 419.5,212.5 		"
-                    />
-                    <path
-                      className="st2"
-                      d="M574.9,215.4c-14.6,0-27.9-2.4-39.5-7.1c-11.7-4.8-21.7-11.5-29.8-20.1c-8-8.5-14.2-18.8-18.4-30.5
-      c-4.2-11.5-6.3-24.1-6.3-37.5c0-13.4,2.1-26,6.3-37.5c4.2-11.7,10.4-21.9,18.4-30.5c8.1-8.6,18.1-15.4,29.8-20.1
-      c11.6-4.7,24.9-7.1,39.5-7.1c14.6,0,28,2.4,39.6,7.1c11.8,4.8,21.9,11.5,30,20.1c8.1,8.6,14.4,18.8,18.6,30.5
-      c4.2,11.5,6.3,24.1,6.3,37.5c0,13.4-2.1,26-6.3,37.5c-4.2,11.7-10.5,21.9-18.6,30.5c-8.1,8.6-18.3,15.4-30,20.1
-      C602.9,213,589.5,215.4,574.9,215.4z M572.7,54.4c-8.2,0-15.2,1.6-20.8,4.8c-5.8,3.2-10.3,7.5-14,13.1c-3.8,5.7-6.5,12.7-8.3,20.7
-      c-1.8,8.4-2.7,17.6-2.7,27.2c0,9.6,1.1,18.6,3.2,26.9c2.1,8,5.2,14.9,9.4,20.7c4.1,5.6,9.2,10,15.5,13.3
-      c6.1,3.2,13.6,4.9,22.2,4.9c7.7,0,14.4-1.6,19.9-4.7c5.7-3.3,10.3-7.6,14.1-13.2c3.9-5.8,6.9-12.8,8.9-20.9
-      c2.1-8.3,3.1-17.4,3.1-27c0-9.5-1.1-18.6-3.2-26.9c-2.1-8-5.2-14.9-9.4-20.7c-4.1-5.6-9.3-10-15.5-13.3
-      C589,56,581.5,54.4,572.7,54.4z"
-                    />
-                    <polygon
-                      className="st2"
-                      points="871.6,215.4 776.4,86.9 776.4,183 798.3,183 798.3,212.5 723.1,212.5 723.1,183 745,183 745,57.3 
-      723.1,57.3 723.1,27.8 783.3,27.8 867.9,141.6 867.9,57.3 846,57.3 846,27.8 921.3,27.8 921.3,57.3 899.3,57.3 899.3,215.4 		"
-                    />
-                  </g>
-                  <g>
-                    <polygon
-                      className="st3"
-                      points="170.9,221.4 84.7,105.1 84.7,177 106.7,177 106.7,218.5 19.4,218.5 19.4,177 41.3,177 41.3,63.3 
-      19.4,63.3 19.4,21.8 88.6,21.8 164.2,123.5 164.2,63.3 142.3,63.3 142.3,21.8 229.6,21.8 229.6,63.3 207.6,63.3 207.6,221.4 		"
-                    />
-                    <path
-                      className="st3"
-                      d="M265.2,218.5V177h21.9V63.3h-21.9V21.8h156.2v67.5h-19.5v59.2h23.6v69.9H265.2z M382.1,177v-23.8h-23.6v-14
-      h-16.3V177H382.1z M358.5,97.7V83.9H378V63.3h-35.9v34.4H358.5z"
-                    />
-                    <path
-                      className="st3"
-                      d="M574.9,221.4c-15.4,0-29.5-2.5-41.8-7.5c-12.5-5.1-23.3-12.3-31.9-21.6c-8.6-9.1-15.2-20.1-19.7-32.5
-      c-4.4-12.2-6.6-25.5-6.6-39.6c0-14.1,2.2-27.4,6.6-39.6c4.5-12.4,11.1-23.4,19.7-32.5c8.7-9.2,19.4-16.5,31.9-21.6
-      c12.3-5,26.4-7.5,41.8-7.5c15.4,0,29.5,2.5,41.9,7.5c12.6,5.1,23.4,12.3,32.2,21.5c8.7,9.2,15.4,20.1,19.9,32.6
-      c4.4,12.2,6.6,25.5,6.6,39.6c0,14.1-2.2,27.4-6.6,39.6c-4.5,12.5-11.2,23.4-19.9,32.6c-8.7,9.2-19.6,16.5-32.2,21.5
-      C604.4,218.8,590.3,221.4,574.9,221.4z M572.7,60.4c-7.2,0-13.1,1.3-17.8,4c-4.9,2.8-8.8,6.4-11.9,11.2
-      c-3.4,5.1-5.8,11.4-7.4,18.6c-1.7,8-2.6,16.7-2.6,26c0,9.1,1,17.6,3,25.4c1.9,7.2,4.7,13.5,8.5,18.6c3.6,4.9,8,8.7,13.4,11.5
-      c5.2,2.8,11.8,4.2,19.4,4.2c6.7,0,12.3-1.3,16.9-3.9c4.9-2.8,8.8-6.5,12.1-11.3c3.5-5.2,6.2-11.6,8-19c2-7.8,3-16.4,3-25.5
-      c0-9-1-17.6-3-25.4c-1.9-7.2-4.7-13.5-8.5-18.6c-3.6-4.9-8-8.7-13.4-11.5C587.1,61.8,580.5,60.4,572.7,60.4z"
-                    />
-                    <polygon
-                      className="st3"
-                      points="868.6,221.4 782.4,105.1 782.4,177 804.3,177 804.3,218.5 717.1,218.5 717.1,177 739,177 739,63.3 
-      717.1,63.3 717.1,21.8 786.3,21.8 861.9,123.5 861.9,63.3 840,63.3 840,21.8 927.3,21.8 927.3,63.3 905.3,63.3 905.3,221.4 		"
-                    />
-                  </g>
-                  <g>
-                    <path
-                      className="st4"
-                      d="M166.4,230.4l-72.7-98V168h21.9v59.5H10.4V168h21.9V72.3H10.4V12.8h82.8l40.1,54v-54h105.3v59.5h-21.9v158.1
-      H166.4z M155.2,96.3v-24h-17.9L155.2,96.3z"
-                    />
-                    <path
-                      className="st4"
-                      d="M256.2,227.5V168h21.9V72.3h-21.9V12.8h174.2v85.5h-19.5v41.2h23.6v87.9H256.2z M373.1,168v-5.8h-22v5.8
-      H373.1z M369,74.9v-2.7h-17.9v2.7H369z"
-                    />
-                    <path
-                      className="st4"
-                      d="M574.9,230.4c-16.6,0-31.8-2.8-45.2-8.2c-13.7-5.6-25.6-13.6-35.1-23.8c-9.4-10-16.7-22-21.6-35.6
-      c-4.7-13.1-7.1-27.5-7.1-42.6c0-15.1,2.4-29.5,7.1-42.6c4.9-13.6,12.2-25.6,21.6-35.6c9.6-10.2,21.4-18.2,35.1-23.8
-      c13.4-5.4,28.6-8.2,45.2-8.2c16.5,0,31.8,2.8,45.2,8.2c13.8,5.6,25.7,13.5,35.3,23.7c9.6,10.1,16.9,22.1,21.8,35.7
-      c4.7,13.1,7.2,27.5,7.2,42.6c0,15.1-2.4,29.5-7.2,42.6c-4.9,13.6-12.3,25.7-21.8,35.7c-9.6,10.2-21.5,18.1-35.3,23.7
-      C606.7,227.6,591.5,230.4,574.9,230.4z M572.7,69.4c-5.6,0-10.1,0.9-13.4,2.8c-3.6,2.1-6.5,4.8-8.9,8.3c-2.7,4.2-4.8,9.4-6.1,15.5
-      c-1.6,7.4-2.4,15.5-2.4,24.1c0,8.3,0.9,16.1,2.8,23.2c1.6,6.1,3.9,11.4,7,15.6c2.8,3.8,6.1,6.7,10.4,8.9c3.9,2.1,9,3.1,15.2,3.1
-      c5.1,0,9.2-0.9,12.4-2.8c3.7-2.1,6.6-4.9,9.1-8.5c2.9-4.3,5.2-9.8,6.8-16.1c1.8-7.1,2.7-15,2.7-23.3c0-8.3-0.9-16.1-2.8-23.2
-      c-1.6-6.1-3.9-11.4-7-15.6c-2.8-3.8-6.1-6.7-10.4-8.9C584.2,70.4,579,69.4,572.7,69.4z"
-                    />
-                    <path
-                      className="st4"
-                      d="M864.1,230.4l-72.7-98V168h21.9v59.5H708.1V168H730V72.3h-21.9V12.8h82.8l40.1,54v-54h105.3v59.5h-21.9v158.1
-      H864.1z M852.9,96.3v-24H835L852.9,96.3z"
-                    />
-                  </g>
-                  <g>
-                    <path
-                      className="st5"
-                      d="M166.4,230.4l-72.7-98V168h21.9v59.5H10.4V168h21.9V72.3H10.4V12.8h82.8l40.1,54v-54h105.3v59.5h-21.9v158.1
-      H166.4z M155.2,96.3v-24h-17.9L155.2,96.3z"
-                    />
-                    <path
-                      className="st5"
-                      d="M256.2,227.5V168h21.9V72.3h-21.9V12.8h174.2v85.5h-19.5v41.2h23.6v87.9H256.2z M373.1,168v-5.8h-22v5.8
-      H373.1z M369,74.9v-2.7h-17.9v2.7H369z"
-                    />
-                    <path
-                      className="st5"
-                      d="M574.9,230.4c-16.6,0-31.8-2.8-45.2-8.2c-13.7-5.6-25.6-13.6-35.1-23.8c-9.4-10-16.7-22-21.6-35.6
-      c-4.7-13.1-7.1-27.5-7.1-42.6c0-15.1,2.4-29.5,7.1-42.6c4.9-13.6,12.2-25.6,21.6-35.6c9.6-10.2,21.4-18.2,35.1-23.8
-      c13.4-5.4,28.6-8.2,45.2-8.2c16.5,0,31.8,2.8,45.2,8.2c13.8,5.6,25.7,13.5,35.3,23.7c9.6,10.1,16.9,22.1,21.8,35.7
-      c4.7,13.1,7.2,27.5,7.2,42.6c0,15.1-2.4,29.5-7.2,42.6c-4.9,13.6-12.3,25.7-21.8,35.7c-9.6,10.2-21.5,18.1-35.3,23.7
-      C606.7,227.6,591.5,230.4,574.9,230.4z M572.7,69.4c-5.6,0-10.1,0.9-13.4,2.8c-3.6,2.1-6.5,4.8-8.9,8.3c-2.7,4.2-4.8,9.4-6.1,15.5
-      c-1.6,7.4-2.4,15.5-2.4,24.1c0,8.3,0.9,16.1,2.8,23.2c1.6,6.1,3.9,11.4,7,15.6c2.8,3.8,6.1,6.7,10.4,8.9c3.9,2.1,9,3.1,15.2,3.1
-      c5.1,0,9.2-0.9,12.4-2.8c3.7-2.1,6.6-4.9,9.1-8.5c2.9-4.3,5.2-9.8,6.8-16.1c1.8-7.1,2.7-15,2.7-23.3c0-8.3-0.9-16.1-2.8-23.2
-      c-1.6-6.1-3.9-11.4-7-15.6c-2.8-3.8-6.1-6.7-10.4-8.9C584.2,70.4,579,69.4,572.7,69.4z"
-                    />
-                    <path
-                      className="st5"
-                      d="M864.1,230.4l-72.7-98V168h21.9v59.5H708.1V168H730V72.3h-21.9V12.8h82.8l40.1,54v-54h105.3v59.5h-21.9v158.1
-      H864.1z M852.9,96.3v-24H835L852.9,96.3z"
-                    />
-                  </g>
-                </g>
-              </svg>
-            </div>
-          </div> */}
-
-          {/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
-          {/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
-          {/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
-          {/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
-          {/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
-          {/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
-          {/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
-          {/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
-          {/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
-
+         
           <div className="container" id="elementos-contenido-inicial">
             <div id="navegador">
               <div className="nav">
@@ -471,17 +786,17 @@ const App = () => {
                       smooth={true}
                       duration={500}
                     >
-                      <a href="#">Inicio</a>
+                      <a href="#">Home</a>
                     </ScrollLink>
                   </li>
                   <li>
                     <ScrollLink to="acerca-de-ref" smooth={true} duration={500}>
-                      <a href="#">Acerca</a>
+                      <a href="#">About</a>
                     </ScrollLink>
                   </li>
                   <li>
                     <ScrollLink to="proyectos-ref" smooth={true} duration={500}>
-                      <a href="#">Proyectos</a>
+                      <a href="#">Projects</a>
                     </ScrollLink>
                   </li>
                   <li>
@@ -490,7 +805,7 @@ const App = () => {
                       smooth={true}
                       duration={500}
                     >
-                      <a href="#">Tecnologias</a>
+                      <a href="#">Technologies</a>
                     </ScrollLink>
                   </li>
                 </ul>
@@ -545,14 +860,16 @@ const App = () => {
                   I like backend, frontend, mobile, cloud <br />
                   computing development and data analysis
                 </p>
-                <button className="btn">Show my proyects</button>
+                <ScrollLink to="proyectos-ref" smooth={true} duration={500}>
+                  <button className="btn">Show my proyects</button>
+                </ScrollLink>
               </div>
             </div>
           </div>
         </div>
         <div id="acerca-de-ref"></div>
         <section id="acerca-de" className="container">
-          <h2>Acerca de mí</h2>
+          <h2>About me</h2>
           {/* <div id="acerca-de-gift">
             <img src="imagen-city.gif" alt="GIF repetido infinitamente" />
           </div> */}
@@ -565,47 +882,33 @@ const App = () => {
               <div className="paper" id="img-acerca-de-contenido">
                 <p className="acerca">
                   "Hello! I'm passionate about the world of software development
-                  and data science. I find immense joy in crafting code that
-                  solves real-world problems and exploring the endless
-                  possibilities of data. With a deep curiosity for technology
-                  and a love for data-driven insights, I'm dedicated to
-                  mastering the art of creating innovative software solutions
-                  and uncovering meaningful patterns within data. Let's build a
-                  better future through code and data together!"
+                  and data science. With a deep curiosity for technology and a
+                  love for data-driven insights, I'm dedicated to mastering the
+                  art of creating innovative software solutions and uncovering
+                  meaningful patterns within data. Let's build a better future
+                  through code and data together!"
                 </p>
               </div>
             </div>
             <div className="paper" id="img-acerca-de-2">
               <div className="paper" id="img-acerca-de-contenido">
                 <p className="acerca">
-                  In addition to my passion for software development and data
-                  science, my family holds a special place in my heart. This
+                  In addition, my family holds a special place in my heart. This
                   close-knit circle includes not only my loved ones but also my
                   feline companion. My family provides me with unwavering
                   support and a source of inspiration, grounding me in the midst
-                  of challenging projects and demanding work. My cat, with its
-                  playful antics and soothing presence, reminds me to find joy
-                  in life's simple moments. They are my pillars of strength, and
-                  I cherish every moment I spend with them, both in my personal
-                  life and throughout my professional journey
+                  of challenging projects and demanding work.
                 </p>
               </div>
             </div>
-            <div className="paper" id="img-acerca-de-3">
+            {/* <div className="paper" id="img-acerca-de-3">
               <div className="paper" id="img-acerca-de-contenido">
                 <p className="acerca">
                   Sports play a significant role in my life, and two of my
                   favorite activities are running and soccer. Beyond being a
                   source of physical fitness, sports are a way for me to
                   challenge myself, stay disciplined, and maintain a healthy
-                  balance in life. Running allows me to push my limits, find
-                  mental clarity, and experience the joy of achieving personal
-                  goals one stride at a time. On the other hand, soccer provides
-                  a sense of camaraderie, teamwork, and the thrill of
-                  competition. Both running and soccer contribute to my overall
-                  well-being, teaching me valuable lessons in dedication,
-                  perseverance, and the importance of a healthy, active
-                  lifestyle.
+                  balance in life.
                 </p>
               </div>
             </div>
@@ -620,69 +923,104 @@ const App = () => {
                   creative landscapes they offer.
                 </p>
               </div>
-            </div>
+            </div> */}
           </div>
         </section>
         <section id="proyectos" className="container">
           <div id="proyectos-ref"> </div>
-          <h2>Proyectos</h2>
+          <h2>Projects</h2>
           <Carousel
             showThumbs={false}
             showStatus={false}
             infiniteLoop={true}
             centerMode={true}
+            autoPlay={true}
             centerSlidePercentage={numeroElementos}
             renderArrowPrev={renderCustomArrowPrev}
             renderArrowNext={renderCustomArrowNext}
           >
-            <div>
-              <img src="" alt="Card 1" />
-              <div className="legend">
-                <h5>Tarjeta 1</h5>
-                <p>Contenido de la tarjeta 1</p>
-              </div>
-            </div>
-            <div>
-              <img src="" alt="Card 1" />
-              <div className="legend">
-                <h5>Tarjeta 1</h5>
-                <p>Contenido de la tarjeta 1</p>
-              </div>
-            </div>
-            <div className="card" alt="Card 2">
-              <div className="card-img-top" alt="...">
-                <div className="imagen" alt="..."></div>
-              </div>
-              <div className="card-body">
-                <h5 className="card-title">Proyecto 1</h5>
-                <p className="card-text">
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-                <button type="button" className="btn btn-success">
-                  Ver proyecto
-                </button>
+            {proyectos.map((elem, index) => {
+              return (
+                <div className="card" alt="Card 2">
+                  <div className="card-img-top" alt="...">
+                    <div
+                      className="imagen"
+                      style={{ backgroundImage: elem.img }}
+                      alt="..."
+                    ></div>
+                  </div>
+                  <div className="card-body">
+                    <h5 className="card-title">{elem.titulo}</h5>
+                    <p className="card-text">{elem.descripcion}</p>
+                    {elem.url_proyecto != "" && (
+                      <button
+                        onClick={() => {
+                          window.open(elem.url_proyecto, "_blank");
+                        }}
+                        type="button"
+                        className="btn btn-success"
+                      >
+                        Show project
+                      </button>
+                    )}
 
-                <button
-                  type="button"
-                  className="btn btn-info"
-                  onClick={() => setVerVideo(true)}
-                >
-                  Ver demostracion
-                </button>
-              </div>
-              <div className="card-footer">
-                <div className="row enlaces-proyectos">
-                  <i className="devicon-github-original-wordmark colored"></i>
-                  <i className="devicon-docker-plain-wordmark colored"></i>
+                    {elem.url_demostracion != "" && (
+                      <button
+                        type="button"
+                        className="btn btn-info mt-1"
+                        onClick={() =>
+                          verVideoDemostracion(elem.url_demostracion)
+                        }
+                      >
+                        Show video demostration
+                      </button>
+                    )}
+                    {elem.detalles != "" && (
+                      <button
+                        type="button"
+                        className="btn btn-primary mt-1"
+                        onClick={() => {
+                          setVerDetalle(true);
+                          console.log(elem.detalles);
+                          setDetalleModal(elem.detalles);
+                        }}
+                      >
+                        Show detail tools, description
+                      </button>
+                    )}
+                  </div>
+                  <div className="card-footer">
+                    <div className="row enlaces-proyectos">
+                      {elem.url_github != "" && (
+                        <i
+                          style={{ width: "50px", height: "50px" }}
+                          onClick={() => {
+                            window.open(elem.url_github, "_blank");
+                          }}
+                        >
+                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
+                        </i>
+                      )}
+                      {elem.url_docker != "" && (
+                        <i
+                          style={{ width: "60px", height: "60px" }}
+                          onClick={() => {
+                            window.open(elem.url_docker, "_blank");
+                          }}
+                        >
+                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" />
+                        </i>
+                      )}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+              );
+            })}
+            ;
           </Carousel>
         </section>
-        <section id="tecnologias" class="container">
-          <h2>Tecnologias</h2>
+        <section id="tecnologias" className="container">
+          <h2>Technologies</h2>
           <div id="tecnologias-ref"></div>
           <div className="container" id="tecnologias-contenedor">
             <div className="row">
@@ -693,9 +1031,23 @@ const App = () => {
                 return (
                   <div>
                     <div className="element-icon">
-                      <div className="icon-tecnologies" id={id}></div>
+                      {verificarIconoExistente(id) == "" ? (
+                        <div className="icon-tecnologies" id={id}></div>
+                      ) : (
+                        <div
+                          id="img"
+                          style={{
+                            backgroundImage:
+                              "url('" + verificarIconoExistente(id) + "')",
+                          }}
+                        ></div>
+                      )}
                       <span
-                        style={{ zIndex: 1, position: "relative", top: "-50" }}
+                        style={{
+                          zIndex: 1,
+                          position: "relative",
+                          top: "-50",
+                        }}
                       >
                         {elem.toUpperCase()}
                       </span>
@@ -744,7 +1096,7 @@ const App = () => {
         </section> */}
 
         <footer className="bg-light text-center">
-          <p>&copy; 2023 Mi Portafolio. Todos los derechos reservados.</p>
+          <p>&copy; 2023 My Portfolio. All rights reserved.</p>
         </footer>
         <div style={{ zIndex: 2 }}>
           <Modal
@@ -753,10 +1105,10 @@ const App = () => {
             onRequestClose={() => setVerVideo(false)}
             style={{
               content: {
-                width: "100vw",
+                width: "80vw",
                 height: "80vh",
                 margin: "auto",
-                background: "#007ea7",
+                background: "#f0eff4",
                 left: "0px",
               },
             }}
@@ -764,7 +1116,7 @@ const App = () => {
             <iframe
               width="100%"
               height="90%"
-              src="https://www.youtube.com/embed/eakalRnzN28"
+              src={urlVideo}
               title="Video"
               allowFullScreen
               id="video"
@@ -781,7 +1133,77 @@ const App = () => {
             </button>
           </Modal>
         </div>
-
+        <div style={{ zIndex: 2, overflow: "scroll", textAlign: "center" }}>
+          <Modal
+            isOpen={verDetalle}
+            contentLabel="Video demostracion"
+            onRequestClose={() => {
+              setVerDetalle(false);
+              setDetalleModal("");
+            }}
+            style={{
+              content: {
+                width: "40vw",
+                minWidth: "300px",
+                height: "auto",
+                margin: "auto",
+                background: "rgba(0, 126, 167, 0.87)",
+                left: "0px",
+              },
+            }}
+          >
+            <h1
+              style={{
+                background: "transparent",
+                textAlign: "center",
+                color: "white",
+              }}
+            >
+              {detalleModal.titulo}
+            </h1>
+            <h2 style={{ background: "transparent", textAlign: "center" }}>
+              Technologies
+            </h2>
+            <div className="row">
+              {detalleModal != "" &&
+                detalleModal.tecnologias.map((elem, index) => {
+                  let nc = 4;
+                  let id = elem + "-icon";
+                  let ncol = "col-sm-" + 12 / nc;
+                  return (
+                    <div id="tecnologias-proyecto-modal">
+                      <div className="element-icon">
+                        {verificarIconoExistente(id) === "" ? (
+                          <div className="icon-tecnologies" id={id}></div>
+                        ) : (
+                          <div
+                            id="img"
+                            style={{
+                              backgroundImage:
+                                "url('" + verificarIconoExistente(id) + "')",
+                            }}
+                          ></div>
+                        )}
+                        <span
+                          style={{
+                            zIndex: 1,
+                            position: "relative",
+                            top: "-50",
+                          }}
+                        >
+                          {elem.toUpperCase()}
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>
+            <h2 style={{ background: "transparent", textAlign: "center" }}>
+              Explanation
+            </h2>
+            <p style={{ color: "white" }}>{detalleModal.explicacion}</p>
+          </Modal>
+        </div>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
