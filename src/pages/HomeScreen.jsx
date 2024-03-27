@@ -1,17 +1,15 @@
-import logo from "../logo.svg";
-import "../App.css";
-import "../images/imagen_personal.png";
+import "App.css";
+import "images/imagen_personal.png";
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { FaWhatsapp, FaLinkedin, FaGithub, FaMailBulk } from "react-icons/fa";
-import React, { useRef } from "react";
+import React from "react";
 import { Link as ScrollLink } from "react-scroll";
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import WorkExperienceSection from "../components/WorkExperienceSection";
+import WorkExperienceSection from "components/WorkExperienceSection";
 const HomeScreen=()=>{
     //setInterval(miFuncion, 2000);
 

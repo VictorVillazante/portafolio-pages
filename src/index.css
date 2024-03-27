@@ -122,3 +122,24 @@ footer {
 	height: 100%;
 	margin: 100px auto;
   }
+
+.font-text-important{
+	font-weight: bold;
+	margin: 0;
+	padding: 20px;
+	background: #007EA7;
+	text-decoration: none;
+	color: #F0EFF4;
+}
+.button-primary{
+	margin: 0;
+	padding: 10px;
+	background: #007EA7;
+	text-decoration: none;
+	border-radius: 20px;
+	color: #F0EFF4;
+}
+.button-primary:hover{
+	color: #007EA7;
+	background-color: white;
+}

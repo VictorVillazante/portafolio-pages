@@ -5,7 +5,7 @@ const WorkExperienceSection = () => {
     const interships=getInterships();
     return (
         <section className="work-experience-section">
-            <h2>Work Experience</h2>
+            <h2 className='font-text-important'>Work Experience</h2>
             <div className='container-work-experience'>
                 {interships.map((intership,index)=>(
                 <WorkExperienceSectionCard 
