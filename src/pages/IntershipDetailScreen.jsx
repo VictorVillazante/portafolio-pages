@@ -1,18 +1,25 @@
 import { useParams } from "react-router-dom";
 import "styled-components/intershipDetailScreen.css";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import WorkExperienceSection from "../components/WorkExperienceSection";
 import {getIntershipById} from "../services/getIntershipById";
 import React from "react";
 import { Link } from "react-router-dom"
+import CertifiedPopup from "../components/CertifiedPopup";
 const IntershipDetailScreen=()=>{
-    const isSelectedShortVideo=useState(true);
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const buttonTextOption=useState("Show large video");
     const { id } = useParams();
     const intershipDetail=getIntershipById(id);
-   
+    const [showCertified, setShowCertified] = useState(false);
+    const handleCertificatePopup=()=>{
+        setShowCertified(true);
+    }
     return(
         <div className="container">
+            <CertifiedPopup showCertified={showCertified} setShowshowCertified={setShowCertified} srcCertificate={intershipDetail["certified"]} />
             <Link to={`/home`}>
                 <div className="go-home">
                     <i class="fa-solid fa-arrow-left"></i>
@@ -32,7 +39,8 @@ const IntershipDetailScreen=()=>{
                 <p className="intership-large-description">{intershipDetail["largeDescription"]}</p>
             </div>
             <div className="intership-show-certified">
-                <button className="button-primary">Email to show certified</button>
+                <button onClick={handleCertificatePopup} className="button-primary">Show copy of certified</button>
+                <button className="button-primary">Email to show original certified</button>
             </div>
             <div className="intership-detail-container">
                 <div className="intership-video">

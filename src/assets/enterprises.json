@@ -6,7 +6,7 @@
             "startDate":"07-2023",
             "endDate":"09-2023",
             "enterprisePhoto":"images/icono_cocawi.png",
-            "certified":"url",
+            "certified":"images/certificado_cocawi.jpeg",
             "shortDescription":"I colaborated with development web site wordpress, lms web app,lms mobile app, backend, database design",
             "largeDescription":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
             "technologies":[
@@ -27,8 +27,8 @@
                 "Configuration, administration firebase services"
               
             ],
-            "largeVideoUrl":"",
-            "shortVideoUrl":"https://www.youtube.com/embed/TeVBQ21RfEI",
+            "largeVideoUrl":"https://www.youtube.com/embed/qej7DcYXPpc",
+            "shortVideoUrl":"https://www.youtube.com/embed/d5TVCX-npfw",
             "imgArchitecture":""
         },
         {
@@ -37,7 +37,7 @@
             "startDate":"02-2023",
             "endDate":"12-2023",
             "enterprisePhoto":"images/labtecnosocial.png",
-            "certified":"url",
+            "certified":"images/certificado_bicidatos.jpeg",
             "shortDescription":"I colaborated with development of second version of bicidatos app, administrate firebase tools, development web app functionalities and colaborate with inteface design",
             "largeDescription":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
             "technologies":[
@@ -52,8 +52,8 @@
                 "Development second version app bicidatos",
                 "Colaboration design interface"
             ],
-            "largeVideoUrl":"",
-            "shortVideoUrl":"https://www.youtube.com/embed/TeVBQ21RfEI",
+            "largeVideoUrl":"https://www.youtube.com/embed/gv_tJ6XQvt8",
+            "shortVideoUrl":"https://www.youtube.com/embed/gv_tJ6XQvt8",
             "imgArchitecture":""
         },
         {
@@ -62,7 +62,7 @@
             "startDate":"11-2023",
             "endDate":"02-2024",
             "enterprisePhoto":"images/soywarmi.png",
-            "certified":"url",
+            "certified":"",
             "shortDescription":"I colaborated with development mobile app of soy warmi, development backend, database design, interface design, sockets, firebase tools",
             "largeDescription":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
             "technologies":[
@@ -88,8 +88,8 @@
                 "angular",
                 "expressjs"
             ],
-            "largeVideoUrl":"",
-            "shortVideoUrl":"https://www.youtube.com/embed/TeVBQ21RfEI",
+            "largeVideoUrl":"https://www.youtube.com/embed/qej7DcYXPpc",
+            "shortVideoUrl":"https://www.youtube.com/embed/d5TVCX-npfw",
             "imgArchitecture":""
         },
         {
@@ -98,7 +98,7 @@
             "startDate":"12-2023",
             "endDate":"02-2024",
             "enterprisePhoto":"images/status.png",
-            "certified":"url",
+            "certified":"images/certificado_status.jpeg",
             "shortDescription":"I colaborated with development of app web and backend",
             "largeDescription":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
             "technologies":[
@@ -122,8 +122,8 @@
                 "angular",
                 "expressjs"
             ],
-            "largeVideoUrl":"",
-            "shortVideoUrl":"https://www.youtube.com/embed/TeVBQ21RfEI",
+            "largeVideoUrl":"https://www.youtube.com/embed/Fc5Sq0VrTaM",
+            "shortVideoUrl":"https://www.youtube.com/embed/Fc5Sq0VrTaM",
             "imgArchitecture":""
         }
     ]
