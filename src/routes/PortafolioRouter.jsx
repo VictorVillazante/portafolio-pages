@@ -6,7 +6,10 @@ const PortafolioRouter=()=>{
     return(
       <div>
         <Router>
-            <Suspense fallback={<h1 className="text-center">Loading...</h1>}>
+            <Suspense fallback={ 
+              <div className="spinner" id="spinner">
+                <img src="carga.gif" alt="GIF infinito" />
+              </div>}>
               <Routes>
                 {/* <Route exact path="/intership/:id">
                   <IntershipDetailScreen />
