@@ -41,9 +41,9 @@ export const useModalManagement = () => {
   };
 
   const hideLoader = (loaderRef) => {
-    const loaderOverlay = document.querySelector(".loader-overlay");
-    console.log(loaderOverlay);
-    if (loaderOverlay) loaderOverlay.style.display = "none";
+    if (loaderRef.current) {
+      loaderRef.current.style.display = "none";
+    }
   };
 
   return {
