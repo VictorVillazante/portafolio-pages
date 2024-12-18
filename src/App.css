@@ -82,293 +82,27 @@
 
 .element-icon:hover span {
   display: inline;
-  transition: 5s ease;
+  transition: 1s ease;
   color: #0E0004;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bold;
 }
 
 .element-icon span {
   transition: 5s ease;
-  margin-left: -5px;
-  display: none;
   pointer-events: none;
+  font-size: 16px;
 }
 
-#html-icon {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg");
-
-}
-
-#html-icon:hover {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg");
-}
-
-#css-icon {
+#technology-icon {
   transition: 1s ease;
 
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg");
-
 }
 
-#css-icon:hover {
+#technology-icon:hover {
   transition: 1s ease;
-
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg");
 }
 
-#javascript-icon {
-  transition: 1s ease;
-
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg");
-}
-
-#javascript-icon:hover {
-  transition: 1s ease;
-
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg");
-}
-
-#react-icon {
-  transition: 1s ease;
-
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg");
-
-}
-
-#react-icon:hover {
-  transition: 1s ease;
-
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg");
-}
-
-#vue-icon {
-  transition: 1s ease;
-
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg");
-
-}
-
-#vue-icon:hover {
-  transition: 1s ease;
-
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-plain.svg");
-}
-
-#angular-icon {
-  transition: 1s ease;
-
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg");
-
-}
-
-#angular-icon:hover {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-plain.svg");
-}
-
-#flutter-icon {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg");
-
-}
-
-#flutter-icon:hover {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-plain.svg");
-}
-
-#android-icon {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg");
-
-}
-
-#android-icon:hover {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-plain.svg");
-}
-
-#spring-icon {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg");
-
-}
-
-#spring-icon:hover {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-plain.svg");
-}
-
-#node-icon {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg");
-
-}
-
-#node-icon:hover {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain-wordmark.svg");
-}
-
-#codeigniter-icon {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain.svg");
-
-}
-
-#codeigniter-icon:hover {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain-wordmark.svg");
-}
-
-#mysql-icon {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg");
-
-}
-
-#mysql-icon:hover {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-plain-wordmark.svg");
-}
-
-#postgresql-icon {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg");
-
-}
-
-#postgresql-icon:hover {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg");
-}
-
-#sqlserver-icon {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg");
-
-}
-
-#sqlserver-icon:hover {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain-wordmark.svg");
-}
-
-#mongodb-icon {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg");
-
-}
-
-#mongodb-icon:hover {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-plain.svg");
-}
-
-#firebase-icon {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg");
-
-}
-
-#firebase-icon:hover {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain-wordmark.svg");
-}
-
-#sqlite-icon {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg");
-
-}
-#dart-icon {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original-wordmark.svg");
-
-}
-#sass-icon {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg");
-
-}
-#java-icon {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg");
-
-}
-#typescript-icon {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg");
-
-}
-#php-icon {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg");
-
-}
-#express-icon {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg");
-
-}
-#bootstrap-icon {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg");
-
-}
-#nginx-icon {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg");
-
-}
-#sqlite-icon:hover {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-plain.svg");
-}
-
-#aws-icon {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg");
-
-}
-
-#aws-icon:hover {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg");
-}
-
-#netlify-icon {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg");
-
-}
-
-#netlify-icon:hover {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-plain.svg");
-}
-
-#docker-icon {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg");
-
-}
-
-#docker-icon:hover {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg");
-}
-#redis-icon {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg");
-}
-#redis-icon:hover {
-  transition: 1s ease;
-  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg");
-}
 section#tecnologias.container {
   width: 100vw;
   max-width: 100vw;
@@ -1169,10 +903,10 @@ footer{
 }
 
 #tecnologias-proyecto-modal{
-  height: 60px;
+  height: fit-content;
 }
 #tecnologias-proyecto-modal .element-icon{
-  height: 50px;
+  height: fit-content;
   width: 200px;
   text-align: center;
 }

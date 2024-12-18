@@ -11,80 +11,38 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import WorkExperienceSection from "components/WorkExperienceSection";
 import { getProyectos } from "services/ProyectosService";
+import { getTechnologies,finOneTechnologyById } from "services/TechnologiesService";
+import { useResponsiveElements,useModalManagement } from "hooks/HomeScreenHooks";
 const HomeScreen=()=>{
-    const [numeroElementos, setNumeroElementos] = useState(100 / 3);
-  
-    const manejarCambioDeTamaño = () => {
-      console.log("Cambio tamaño " + window.innerWidth);
-      setNumeroElementos(100 / 3);
-      if (window.innerWidth < 1000) {
-        setNumeroElementos(100 / 2);
-      }
-      if (window.innerWidth < 500) {
-        setNumeroElementos(100);
-      }
-    };
-  
+
     useEffect(() => {
-      manejarCambioDeTamaño();
       setTimeout(() => {
         let elem = document.getElementById("spinner");
         elem.style.display = "none";
       }, 2000);
-      window.addEventListener("resize", manejarCambioDeTamaño);
-  
-      return () => {
-        window.removeEventListener("resize", manejarCambioDeTamaño);
-      };
     }, []);
-  
-    const [verVideo, setVerVideo] = useState(false);
-    const [verDetalle, setVerDetalle] = useState(false);
-    const [detalleModal, setDetalleModal] = useState("");
-  
 
-    const [urlVideo, setUrlVideo] = useState("");
-    let proyectos = getProyectos();
+    const {  verVideo,
+      setVerVideo,
+      verDetalle,
+      setVerDetalle,
+      detalleModal,
+      setDetalleModal,
+      urlVideo,
+      verVideoDemostracion,
+      hideLoader} = useModalManagement();
   
-    let items = [
-      "html",
-      "css",
-      "javascript",
-      "angular",
-      "vue",
-      "react",
-      "android",
-      "flutter",
-      "spring",
-      "node",
-      "codeigniter",
-      "mysql",
-      "postgresql",
-      "sqlserver",
-      "mongodb",
-      "firebase",
-      "sqlite",
-      "aws",
-      "netlify",
-      "docker",
-      "dart",
-      "sass",
-      "java",
-      "typescript",
-      "php",
-      "express",
-      "youtube-api",
-      "google-maps",
-      "react-native",
-      "cloudinary",
-      "keycloak",
-      "bootstrap",
-      "rabbit-mq",
-      "mapbox",
-      "jwt",
-      "nginx",
-      "telegram",
-    ];
+      const {  numeroElementos} = useResponsiveElements();
+    useEffect(() => {
+      setTimeout(() => {
+        hideLoader(); 
+      }, 2000);
+    }, [hideLoader]);
+
+
+    const proyectos = getProyectos();
+    const technologies = getTechnologies();
+
     const renderCustomArrowPrev = (onClickHandler, hasPrev, label) =>
       hasPrev && (
         <button
@@ -95,46 +53,9 @@ const HomeScreen=()=>{
           Back
         </button>
       );
-    const verVideoDemostracion = (url) => {
-      setUrlVideo(url);
-      setVerVideo(true);
-    };
-    const verificarIconoExistente = (icono) => {
-      console.log(icono);
-      if (icono == "tensorflow-icon") {
-        return "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Tensorflow_logo.svg/115px-Tensorflow_logo.svg.png";
-      }
-      if (icono == "youtube-api-icon") {
-        return "https://img.freepik.com/free-vector/youtube-concept_23-2147862172.jpg?w=826&t=st=1695224281~exp=1695224881~hmac=60af6182e73a985437efd595eda450046e5a29b6d4176f1e23c72019121e99af";
-      }
-      if (icono == "google-maps-icon") {
-        return "https://1000marcas.net/wp-content/uploads/2020/10/Google-Maps-Logo-tumb-1280x720.png";
-      }
-      if (icono == "react-native-icon") {
-        return "https://www.inovex.de/wp-content/uploads/2018/03/react-native.png";
-      }
-      if (icono == "cloudinary-icon") {
-        return "https://res.cloudinary.com/demo/image/upload/e_shadow:90,x_15,y_15,co_rgb:0B70B6/c_pad,ar_1.0/w_200,f_auto,q_auto/cloudinary_icon.png";
-      }
-      if (icono == "mapbox-icon") {
-        return "https://avatars.githubusercontent.com/u/600935?s=200&v=4";
-      }
-      if (icono == "jwt-icon") {
-        return "https://jwt.io/img/icon.svg";
-      }
-      if (icono == "telegram-icon") {
-        return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZO22mm0NSyuaYfsXsAaVCz6OY02ndeRXjEg&usqp=CAU";
-      }
-      if (icono == "rabbit-mq-icon") {
-        return "https://www.jorgehernandezramirez.com/wp-content/uploads/2017/04/rabbitmq-logo.png";
-      }
-      if (icono == "keycloak-icon") {
-        return "https://blog.consdata.tech/assets/img/posts/2020-02-01-keycloak-uwierzytelnianie-autoryzacja-springboot-angular/Keycloak.png";
-      }
-      return "";
-    };
+
     const handleWhatssapp = () => {
-      const phoneNumber = "74260360";
+      const phoneNumber = "76238279";
   
       const whatsappLink = `https://wa.me/${phoneNumber}?text=Hola%20%20vi%20tu%20portafolio%20me%20gustaria%20contactarme%20contigo`;
   
@@ -152,10 +73,7 @@ const HomeScreen=()=>{
     const handleGmail = () => {
       window.open("https://www.google.com/intl/es/gmail/about/", "_blank");
     };
-    const hideLoader = () => {
-      const loaderOverlay = document.querySelector(".loader-overlay");
-      loaderOverlay.style.display = "none";
-    };
+
   
     const renderCustomArrowNext = (onClickHandler, hasNext, label) =>
       hasNext && (
@@ -401,32 +319,20 @@ const HomeScreen=()=>{
           <div id="tecnologias-ref"></div>
           <div className="container" id="tecnologias-contenedor">
             <div className="row">
-              {items.map((elem, index) => {
-                let nc = 4;
-                let id = elem + "-icon";
-                let ncol = "col-sm-" + 12 / nc;
+              {technologies.map((technology, index) => {
                 return (
                   <div>
                     <div className="element-icon">
-                      {verificarIconoExistente(id) == "" ? (
-                        <div className="icon-tecnologies" id={id}></div>
-                      ) : (
                         <div
                           id="img"
                           style={{
                             backgroundImage:
-                              "url('" + verificarIconoExistente(id) + "')",
+                              "url('" + technology.url + "')",
                           }}
                         ></div>
-                      )}
                       <span
-                        style={{
-                          zIndex: 1,
-                          position: "relative",
-                          top: "-50",
-                        }}
                       >
-                        {elem.toUpperCase()}
+                        {technology.name.toUpperCase()}
                       </span>
                     </div>
                   </div>
@@ -436,37 +342,37 @@ const HomeScreen=()=>{
           </div>
         </section>
 
-        <section id="contacto" class="container">
+        <section id="contacto" className="container">
           <h2>Contacto</h2>
           <form>
-            <div id="scrollToRef" class="form-group">
-              <label for="nombre">Nombre:</label>
+            <div id="scrollToRef" className="form-group">
+              <label htmlFor="nombre">Nombre:</label>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="nombre"
                 placeholder="Ingrese su nombre"
               />
             </div>
-            <div class="form-group">
-              <label for="email">Correo electrónico:</label>
+            <div className="form-group">
+              <label htmlFor="email">Correo electrónico:</label>
               <input
                 type="email"
-                class="form-control"
+                className="form-control"
                 id="email"
                 placeholder="Ingrese su correo electrónico"
               />
             </div>
-            <div class="form-group">
-              <label for="mensaje">Mensaje:</label>
+            <div className="form-group">
+              <label htmlFor="mensaje">Mensaje:</label>
               <textarea
-                class="form-control"
+                className="form-control"
                 id="mensaje"
                 rows="5"
                 placeholder="Ingrese su mensaje"
               ></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" className="btn btn-primary">
               Enviar
             </button>
           </form>
@@ -497,7 +403,7 @@ const HomeScreen=()=>{
               title="Video"
               allowFullScreen
               id="video"
-              onLoad={() => hideLoader()}
+              onLoad={() => hideLoader}
             />
             <div className="loader-overlay">
               <div className="loader"></div>
@@ -544,31 +450,21 @@ const HomeScreen=()=>{
             <div className="row">
               {detalleModal != "" &&
                 detalleModal.tecnologias.map((elem, index) => {
-                  let nc = 4;
-                  let id = elem + "-icon";
-                  let ncol = "col-sm-" + 12 / nc;
+                  const technology=finOneTechnologyById(elem+"-icon");
                   return (
                     <div id="tecnologias-proyecto-modal">
                       <div className="element-icon">
-                        {verificarIconoExistente(id) === "" ? (
-                          <div className="icon-tecnologies" id={id}></div>
-                        ) : (
-                          <div
+                        <div
                             id="img"
                             style={{
                               backgroundImage:
-                                "url('" + verificarIconoExistente(id) + "')",
+                                "url('" + technology.url + "')",
                             }}
                           ></div>
-                        )}
+                       
                         <span
-                          style={{
-                            zIndex: 1,
-                            position: "relative",
-                            top: "-50",
-                          }}
                         >
-                          {elem.toUpperCase()}
+                          {technology.name.toUpperCase()}
                         </span>
                       </div>
                     </div>

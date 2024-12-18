@@ -1,0 +1,176 @@
+[
+  {
+    "id": "html-icon",
+    "name": "html",
+    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+    "url-hover": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg"
+  },
+  {
+    "id": "css-icon",
+    "name": "css",
+    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+    "url-hover": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg"
+  },
+  {
+    "id": "javascript-icon",
+    "name": "javascript",
+    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+    "url-hover": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg"
+  },
+  {
+    "id": "react-icon",
+    "name": "react",
+    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg",
+    "url-hover": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+  },
+  {
+    "id": "vue-icon",
+    "name": "vue",
+    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+    "url-hover": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-plain.svg"
+  },
+  {
+    "id": "angular-icon",
+    "name": "angular",
+    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg",
+    "url-hover": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-plain.svg"
+  },
+  {
+    "id": "flutter-icon",
+    "name": "flutter",
+    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+    "url-hover": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-plain.svg"
+  },
+  {
+    "id": "android-icon",
+    "name": "android",
+    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg",
+    "url-hover": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-plain.svg"
+  },
+  {
+    "id": "spring-icon",
+    "name": "spring",
+    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
+    "url-hover": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-plain.svg"
+  },
+  {
+    "id": "node-icon",
+    "name": "node",
+    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg",
+    "url-hover": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain-wordmark.svg"
+  },
+  {
+    "id": "codeigniter-icon",
+    "name": "codeigniter",
+    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain.svg",
+    "url-hover": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain-wordmark.svg"
+  },
+  {
+    "id": "mysql-icon",
+    "name": "mysql",
+    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg",
+    "url-hover": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-plain-wordmark.svg"
+  },
+  {
+    "id": "postgresql-icon",
+    "name": "postgresql",
+    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+    "url-hover": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg"
+  },
+  {
+    "id": "sqlserver-icon",
+    "name": "sqlserver",
+    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg",
+    "url-hover": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain-wordmark.svg"
+  },
+  {
+    "id": "mongodb-icon",
+    "name": "mongodb",
+    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+    "url-hover": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-plain.svg"
+  },
+  {
+    "id": "firebase-icon",
+    "name": "firebase",
+    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
+    "url-hover": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain-wordmark.svg"
+  },
+  {
+    "id": "sqlite-icon",
+    "name": "sqlite",
+    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg",
+    "url-hover": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-plain.svg"
+  },
+  {
+    "id": "dart-icon",
+    "name": "dart",
+    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original-wordmark.svg",
+    "url-hover": ""
+  },
+  {
+    "id": "sass-icon",
+    "name": "sass",
+    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg",
+    "url-hover": ""
+  },
+  {
+    "id": "java-icon",
+    "name": "java",
+    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+    "url-hover": ""
+  },
+  {
+    "id": "typescript-icon",
+    "name": "typescript",
+    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+    "url-hover": ""
+  },
+  {
+    "id": "php-icon",
+    "name": "php",
+    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+    "url-hover": ""
+  },
+  {
+    "id": "express-icon",
+    "name": "express",
+    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+    "url-hover": ""
+  },
+  {
+    "id": "bootstrap-icon",
+    "name": "bootstrap",
+    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg",
+    "url-hover": ""
+  },
+  {
+    "id": "nginx-icon",
+    "name": "nginx",
+    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg",
+    "url-hover": ""
+  },
+  {
+    "id": "aws-icon",
+    "name": "aws",
+    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+    "url-hover": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg"
+  },
+  {
+    "id": "docker-icon",
+    "name": "docker",
+    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+    "url-hover": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg"
+  },
+  {
+    "id": "redis-icon",
+    "name": "redis",
+    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
+    "url-hover": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-plain.svg"
+  },
+  {
+    "id": "tensorflow-icon",
+    "name": "tensorflow",
+    "url": "",
+    "url-hover": ""
+  }
+]
